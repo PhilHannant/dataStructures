@@ -41,12 +41,38 @@ public class LinkedList<T> {
         }
     }
 
-
-    public void reverseList(){
-        root = findLastNode();
-
+    public int getSize(){
+        int size = 0;
+        Node<T> start = root;
+        while(start != null){
+            size++;
+            start = start.next;
+        }
+        return size;
     }
 
+    public void reverseList(){
+        Node<T> last = findLastNode();
+        int size = getSize();
+        for(int i = 0; i < size; i++){
+            last.next = root;
+            root = last;
+            removeNext(last);
+            last = findLastNode();
+        }
+    }
+
+    public void removeNext(Node<T> removeNode){
+        removeNextHelper(root, removeNode);
+
+    }
+    public void removeNextHelper(Node<T> node, Node<T> removeNode){
+        if (node.next.equals(removeNode)){
+            node.next = null;
+        } else {
+            removeNextHelper(node.next, removeNode);
+        }
+    }
 
     private class Node<T>{
 
