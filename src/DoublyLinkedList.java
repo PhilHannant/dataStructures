@@ -44,9 +44,9 @@ public class DoublyLinkedList<T> {
 
     public void reverseList(){
         root = findLastNode();
-        while(root.last != null){
-            end = end.last;
-        }
+//        while(root.last != null){
+//            end = end.last;
+//        }
     }
 
 

@@ -51,16 +51,15 @@ public class LinkedList<T> {
         return size;
     }
 
-//    public void reverseList(){
-//        Node<T> last = findLastNode();
-//        int size = getSize();
-//        for(int i = 0; i < size-1; i++){
-//            last.next = root;
-//            root = last;
-//            removeNext(last);
-//            last = findLastNode();
-//        }
-//    }
+    public void shiftList(int num){
+        Node<T> last = findLastNode();
+        for(int i = 0; i < num; i++){
+            last.next = root;
+            root = last;
+            removeNext(last);
+            last = findLastNode();
+        }
+    }
 
     public void reverseList(){
         Node<T> pointer1 = null;

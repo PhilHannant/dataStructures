@@ -7,6 +7,10 @@ public class Main {
         ll.addNode("d");
         ll.addNode("e");
         ll.printList();
+        System.out.println(ll.getSize());
+        ll.reverseList();
+        ll.printList();
+
 
     }
 }
