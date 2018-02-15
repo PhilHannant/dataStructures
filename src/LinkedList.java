@@ -51,14 +51,26 @@ public class LinkedList<T> {
         return size;
     }
 
+//    public void reverseList(){
+//        Node<T> last = findLastNode();
+//        int size = getSize();
+//        for(int i = 0; i < size-1; i++){
+//            last.next = root;
+//            root = last;
+//            removeNext(last);
+//            last = findLastNode();
+//        }
+//    }
+
     public void reverseList(){
-        Node<T> last = findLastNode();
-        int size = getSize();
-        for(int i = 0; i < size; i++){
-            last.next = root;
-            root = last;
-            removeNext(last);
-            last = findLastNode();
+        Node<T> pointer1 = null;
+        Node<T> pointer2 = root.next;
+        while(pointer2 != null){
+            root.next = pointer1;
+            pointer1 = root;
+            root = pointer2;
+            pointer2 = pointer2.next;
+            root.next = pointer1;
         }
     }
 
@@ -73,6 +85,15 @@ public class LinkedList<T> {
             removeNextHelper(node.next, removeNode);
         }
     }
+
+    public Node<T> findPrevious(Node<T> node, Node<T> nodeToFind){
+        if(node.next.equals(nodeToFind)){
+            return node;
+        } else {
+            return findPrevious(node.next, nodeToFind);
+        }
+    }
+
 
     private class Node<T>{
 
