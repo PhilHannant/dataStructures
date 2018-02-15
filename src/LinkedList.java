@@ -62,14 +62,15 @@ public class LinkedList<T> {
     }
 
     public void reverseList(){
-        Node<T> pointer1 = null;
-        Node<T> pointer2 = root.next;
-        while(pointer2 != null){
-            root.next = pointer1;
-            pointer1 = root;
-            root = pointer2;
-            pointer2 = pointer2.next;
-            root.next = pointer1;
+        Node<T> previous = null;
+        Node<T> nextNode = root.next;
+        while(nextNode != null){
+            root.next = previous;
+            previous = root;
+            root = nextNode;
+            nextNode = nextNode.next;
+            root.next = previous;
+
         }
     }
 
