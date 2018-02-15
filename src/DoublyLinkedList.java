@@ -1,18 +1,18 @@
-public class LinkedList<T> {
+public class DoublyLinkedList<T> {
 
     private Node<T> root;
 
-    public LinkedList(T rootData){
+    public DoublyLinkedList(T rootData){
         if (root == null) {
-            this.root = new Node<T>(rootData, null);
+            this.root = new Node<T>(rootData, null, null);
         }
     }
 
     public void addNode(T data){
         if (root == null){
-            this.root = new Node<T>(data, null);
+            this.root = new Node<T>(data, null, null);
         } else {
-            findLastNode().next = new Node<T>(data, null);
+            findLastNode().next = new Node<T>(data, null, findLastNodeHelper(root));
         }
 
     }
@@ -44,7 +44,9 @@ public class LinkedList<T> {
 
     public void reverseList(){
         root = findLastNode();
-
+        while(root.last != null){
+            end = end.last;
+        }
     }
 
 
@@ -52,18 +54,28 @@ public class LinkedList<T> {
 
         private T data;
         private Node<T> next;
+        private Node<T> last;
 
-        public Node(T data, Node<T> next){
+        public Node(T data, Node<T> next, Node<T> last){
             this.data = data;
             this.next = next;
+            this.last = last;
         }
 
         public Node<T> getNext(Node<T> node){
             return node.next;
         }
 
+        public Node<T> getLast(Node<T> node){
+            return node.last;
+        }
+
         public void setNext(Node<T> node, Node<T> nextNode){
             node.next = nextNode;
+        }
+
+        public void setLast(Node<T> node, Node<T> lastNode){
+            node.next = lastNode;
         }
 
         public T getData(){
