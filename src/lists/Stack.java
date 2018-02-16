@@ -1,3 +1,5 @@
+package lists;
+
 public class Stack<T> extends LinkedList<T> {
 
     private Node<T> root;
