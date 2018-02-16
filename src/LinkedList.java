@@ -41,6 +41,27 @@ public class LinkedList<T> {
         }
     }
 
+    public Boolean insertNode(T data, int position){
+        if (position > getSize()){
+            return false;
+        } else {
+            insertNodeHelper(data, position, 0, root);
+            return true;
+        }
+
+    }
+
+    public void insertNodeHelper(T data, int position, int node, Node<T> currentNode){
+        System.out.println(node);
+        if(node == position){
+            Node<T> newNode = new Node<T>(data, currentNode.next);
+            currentNode.next = newNode;
+         } else {
+            node++;
+            insertNodeHelper(data, position, node, currentNode.next);
+        }
+    }
+
     public int getSize(){
         int size = 0;
         Node<T> start = root;
