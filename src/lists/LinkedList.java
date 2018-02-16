@@ -1,3 +1,5 @@
+package lists;
+
 public class LinkedList<T> {
 
     private Node<T> root;
@@ -50,7 +52,7 @@ public class LinkedList<T> {
     }
 
     public Boolean insertNode(T data, int position){
-        if (position > getSize()){
+        if (position >= getSize()){
             return false;
         } else {
             insertNodeHelper(data, position, 0, root);
@@ -66,6 +68,17 @@ public class LinkedList<T> {
          } else {
             node++;
             insertNodeHelper(data, position, node, currentNode.next);
+        }
+    }
+
+    public Node<T> moveRoot(){
+        if(!isEmpty() && getSize() != 1){
+            Node<T> returnNode = root;
+            root = root.next;
+            return returnNode;
+        } else {
+            root = null;
+            return null;
         }
     }
 
@@ -140,6 +153,9 @@ public class LinkedList<T> {
         }
     }
 
+    public Node<T> getRoot(){
+        return root;
+    }
 
     class Node<T>{
 
