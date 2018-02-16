@@ -8,6 +8,14 @@ public class LinkedList<T> {
         }
     }
 
+    public Boolean isEmpty(){
+        if(root == null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void addNode(T data){
         if (root == null){
             this.root = new Node<T>(data, null);
@@ -52,13 +60,30 @@ public class LinkedList<T> {
     }
 
     public void insertNodeHelper(T data, int position, int node, Node<T> currentNode){
-        System.out.println(node);
         if(node == position){
             Node<T> newNode = new Node<T>(data, currentNode.next);
             currentNode.next = newNode;
          } else {
             node++;
             insertNodeHelper(data, position, node, currentNode.next);
+        }
+    }
+
+    public Boolean deleteNode(int position){
+        if (position > getSize()){
+            return false;
+        } else {
+            deleteNodeHelper(position, 0, root, null);
+            return true;
+        }
+    }
+
+    public void deleteNodeHelper(int position, int node, Node<T> currentNode, Node<T> previous){
+        if(node == position){
+              previous.next = currentNode.next;
+        } else {
+            node++;
+            deleteNodeHelper(position, node, currentNode.next, currentNode);
         }
     }
 
@@ -116,7 +141,7 @@ public class LinkedList<T> {
     }
 
 
-    private class Node<T>{
+    class Node<T>{
 
         private T data;
         private Node<T> next;
