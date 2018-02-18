@@ -33,7 +33,8 @@ public class Tree {
         }
     }
 
-    public void printInorder(){
+    public void printInOrder(){
+        System.out.println("inOrder");
         printInOrderHelper(root);
     }
 
@@ -47,6 +48,55 @@ public class Tree {
 
     }
 
+    public void printPreOrder(){
+        System.out.println("preOrder");
+        printPreOrderHelper(root);
+    }
+
+    public void printPreOrderHelper(Node current){
+        if(current == null){
+            return;
+        }
+        System.out.println(current.data);
+        printPreOrderHelper(current.left);
+        printPreOrderHelper(current.right);
+
+    }
+
+    public void printPostOrder(){
+        System.out.println("postOrder");
+        printPostOrderHelper(root);
+    }
+
+    public void printPostOrderHelper(Node current){
+        if(current == null){
+            return;
+        }
+        printPostOrderHelper(current.left);
+        printPostOrderHelper(current.right);
+        System.out.println(current.data);
+    }
+
+
+    public int getMax(){
+        return getMaxHelper(root);
+    }
+
+    public int getMaxHelper(Node current){
+        if(current.right == null){
+            return current.data;
+        } return getMaxHelper(current.right);
+    }
+
+    public int getMin(){
+        return getMinHelper(root);
+    }
+
+    public int getMinHelper(Node current){
+        if(current.left == null){
+            return current.data;
+        } return getMinHelper(current.left);
+    }
 
     private class Node {
 

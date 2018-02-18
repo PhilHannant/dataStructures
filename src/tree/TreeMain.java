@@ -15,6 +15,8 @@ public class TreeMain {
         t.printInOrder();
         t.printPreOrder();
         t.printPostOrder();
+        System.out.println("min=" + t.getMin());
+        System.out.println("max=" + t.getMax());
 
     }
 }
