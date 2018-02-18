@@ -12,6 +12,9 @@ public class TreeMain {
         t.addNode(1);
         t.addNode(6);
         t.addNode(10);
-        t.printInorder();
+        t.printInOrder();
+        t.printPreOrder();
+        t.printPostOrder();
+
     }
 }
