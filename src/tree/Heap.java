@@ -1,5 +1,5 @@
 package tree;
-
+//min heap
 public class Heap {
 
     private Integer size;
@@ -54,9 +54,50 @@ public class Heap {
     public void swap(Integer index, Integer parent){
         int temp = harr[index];
         harr[index] = harr[parent];
-        System.out.println("indeex="+harr[index]);
         harr[parent] = temp;
-        System.out.println("parent="+harr[parent]);
+    }
+
+    public void deleteKey(){
+
+    }
+
+    public Integer extractMin(){
+        if(harr[0] != null && size == 0) {
+            return null;
+        }
+        if(size == 1){
+            size--;
+            return harr[0];
+        }
+        System.out.println("extract new root="+harr[size-1]);
+        Integer root = harr[0];
+        harr[0] = harr[size-1];
+        size--;
+        rearrangeHeap(0);
+
+        return root;
+    }
+
+    public void rearrangeHeap(Integer index){
+        System.out.println("index="+index);
+        Integer left = getLeftChild(index);
+        Integer right = getRightChild(index);
+        Integer min = index;
+        if(harr[left] != null){
+            if(harr[left] < harr[index]){
+                min = left;
+            }
+        }
+        if(harr[right] != null){
+            if(harr[right] < harr[min]) {
+                min = right;
+            }
+        }
+        if(min != index){
+            swap(index, min);
+            rearrangeHeap(min);
+        }
+
     }
 
 }

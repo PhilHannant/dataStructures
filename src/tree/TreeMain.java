@@ -33,6 +33,8 @@ public class TreeMain {
         h.insertKey(45);
         System.out.println("min="+h.getMin());
         h.print();
+        System.out.println("extract="+h.extractMin());
+        h.print();
 
     }
 }
