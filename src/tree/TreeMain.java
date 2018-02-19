@@ -35,6 +35,9 @@ public class TreeMain {
         h.print();
         System.out.println("extract="+h.extractMin());
         h.print();
+        h.decreaseKey(3, 2);
+        System.out.println("decrease");
+        h.print();
 
     }
 }

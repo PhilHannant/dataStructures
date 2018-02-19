@@ -57,7 +57,12 @@ public class Heap {
         harr[parent] = temp;
     }
 
-    public void deleteKey(){
+    public void decreaseKey(Integer index, Integer newValue){
+        harr[index] = newValue;
+        while (harr[getParent(index)] > harr[index] && index != 0) {
+            swap(index, getParent(index));
+            index = getParent(index);
+        }
 
     }
 
