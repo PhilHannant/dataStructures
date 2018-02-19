@@ -18,5 +18,21 @@ public class TreeMain {
         System.out.println("min=" + t.getMin());
         System.out.println("max=" + t.getMax());
 
+        System.out.println("heap");
+        Heap h = new Heap(20);
+        h.insertKey(30);
+        System.out.println("min="+h.getMin());
+        h.insertKey(2);
+        System.out.println("min="+h.getMin());
+        h.insertKey(15);
+        System.out.println("min="+h.getMin());
+        h.insertKey(5);
+        System.out.println("min="+h.getMin());
+        h.insertKey(4);
+        System.out.println("min="+h.getMin());
+        h.insertKey(45);
+        System.out.println("min="+h.getMin());
+        h.print();
+
     }
 }

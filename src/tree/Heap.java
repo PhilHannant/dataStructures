@@ -36,21 +36,30 @@ public class Heap {
         harr[size] = key;
         size++;
         int parent = harr[getParent(size-1)];
-        int parentKey = getParent(size-1);
-        if(parent > key){
-            while(parent > key){
-                swap(size-1, parentKey);
-                parent = harr[parentKey];
-            }
 
+        int parentKey = size-1;
+        System.out.println("pkv="+harr[parentKey] + "k="+key);
+        System.out.println("pk="+parentKey);
+        System.out.println(harr[parentKey] > key);
+        while(harr[parentKey] > key && parentKey != 0){
+            System.out.println("parentKey="+parentKey);
+            swap(size-1, parentKey);
+            parentKey = getParent(parentKey);
+        }
+    }
 
+    public void print(){
+        for(int i = 0; i < size; i++){
+            System.out.println(harr[i]);
         }
     }
 
     public void swap(int index, int parent){
         int temp = harr[index];
         harr[index] = harr[parent];
+        System.out.println("indeex="+harr[index]);
         harr[parent] = temp;
+        System.out.println("parent="+harr[parent]);
     }
 
 }
