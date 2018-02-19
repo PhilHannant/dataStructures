@@ -1,0 +1,9 @@
+Stack = depth first
+Queue = breadth first
+
+BST
+A data structure is required for storing a set of integers such that each of the following operations can be done in (log n) time, where n is the number of elements in the set.
+   o	Delection of the smallest element
+   o	Insertion of an element if it is not already present in the set
+
+Recursion = FILO

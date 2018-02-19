@@ -83,6 +83,11 @@ public class Heap {
         return root;
     }
 
+    public void deleteKey(Integer index){
+        decreaseKey(index, Integer.MIN_VALUE);
+        extractMin();
+    }
+
     public void rearrangeHeap(Integer index){
         System.out.println("index="+index);
         Integer left = getLeftChild(index);
