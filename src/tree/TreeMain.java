@@ -38,6 +38,9 @@ public class TreeMain {
         h.decreaseKey(3, 2);
         System.out.println("decrease");
         h.print();
+        h.deleteKey(2);
+        System.out.println("delete");
+        h.print();
 
     }
 }
