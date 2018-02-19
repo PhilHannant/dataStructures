@@ -17,15 +17,15 @@ public class Heap {
         return harr[0];
     }
 
-    public int parent(int index){
+    public int getParent(int index){
         return (index-1)/2;
     }
 
-    public int leftChild(int index){
+    public int getLeftChild(int index){
         return (2*index+1);
     }
 
-    public int rightChild(int index){
+    public int getRightChild(int index){
         return (2*index+2);
     }
 
@@ -35,15 +35,22 @@ public class Heap {
         }
         harr[size] = key;
         size++;
-        if(harr[parent(size-1)] > key){
-            swap(size-1);
+        int parent = harr[getParent(size-1)];
+        int parentKey = getParent(size-1);
+        if(parent > key){
+            while(parent > key){
+                swap(size-1, parentKey);
+                parent = harr[parentKey];
+            }
+
+
         }
     }
 
-    public void swap(int index){
-        int parent = harr[parent(index)];
-        int child = harr[index];
-        while
+    public void swap(int index, int parent){
+        int temp = harr[index];
+        harr[index] = harr[parent];
+        harr[parent] = temp;
     }
 
 }
