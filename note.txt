@@ -7,3 +7,10 @@ A data structure is required for storing a set of integers such that each of the
    o	Insertion of an element if it is not already present in the set
 
 Recursion = FILO
+
+Divide and conquer
+Binary search
+- input element x with middle element of the array, if = return index of middle, else if x < middle, then recurs for left side of middle element, else recurs for right side of middle element.
+quicksort
+merge sort
+Closet pair of points
