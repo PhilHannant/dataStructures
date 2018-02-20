@@ -9,8 +9,10 @@ A data structure is required for storing a set of integers such that each of the
 Recursion = FILO
 
 Divide and conquer
-Binary search
+Binary search - worst O(log n), best O(1), ave O(log n)
 - input element x with middle element of the array, if = return index of middle, else if x < middle, then recurs for left side of middle element, else recurs for right side of middle element.
-quicksort
-merge sort
-Closet pair of points
+quicksort - worst (On^2), best O(n), ave O (n log n)
+- The algorithm picks a pivot element, rearranges the array elements in such a way that all elements smaller than the picked pivot element move to left side of pivot, and all greater elements move to right side. Finally, the algorithm recursively sorts the subarrays on left and right of pivot element.
+merge sort - o (n log n) for all
+- is also a sorting algorithm. The algorithm divides the array in two halves, recursively sorts them and finally merges the two sorted halves.
+
