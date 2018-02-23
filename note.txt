@@ -16,3 +16,4 @@ quicksort - worst (On^2), best O(n), ave O (n log n)
 merge sort - o (n log n) for all
 - is also a sorting algorithm. The algorithm divides the array in two halves, recursively sorts them and finally merges the two sorted halves.
 
+Use - https://gist.github.com/TSiege/cbb0507082bb18ff7e4b#studying-for-a-tech-interview-sucks-so-heres-a-cheat-sheet-to-help
