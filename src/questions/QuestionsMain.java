@@ -16,6 +16,9 @@ public class QuestionsMain {
         System.out.println(r.fibonacci(4));
         System.out.println(r.fibonacci(25));
 
+        General g = new General();
+        System.out.println(g.clockAngle(3, 40));
+
     }
 
 }
