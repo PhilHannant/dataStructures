@@ -1,5 +1,7 @@
 package tree;
 
+import lists.Queue;
+
 public class Tree {
 
     private Node root;
@@ -96,6 +98,23 @@ public class Tree {
         if(current.left == null){
             return current.data;
         } return getMinHelper(current.left);
+    }
+
+    public int deepestNode(){
+        int deepest = 0;
+        deepest = deepestNodeHelper(root);
+        return deepest;
+    }
+
+    public int deepestNodeHelper(Node current){
+        int rightMax = 0;
+        int leftMax = 0;
+        if(current == null){
+            return -1;
+        }
+        rightMax = deepestNodeHelper(current.right);
+        leftMax = deepestNodeHelper(current.left);
+        return Math.max(rightMax, leftMax) + 1;
     }
 
     private class Node {

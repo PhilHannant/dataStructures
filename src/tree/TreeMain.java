@@ -17,6 +17,7 @@ public class TreeMain {
         t.printPostOrder();
         System.out.println("min=" + t.getMin());
         System.out.println("max=" + t.getMax());
+        System.out.println("depth="+t.deepestNode());
 
         System.out.println("heap");
         Heap h = new Heap(20);
@@ -41,6 +42,7 @@ public class TreeMain {
         h.deleteKey(2);
         System.out.println("delete");
         h.print();
+
 
     }
 }
