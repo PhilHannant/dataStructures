@@ -19,6 +19,8 @@ public class QuestionsMain {
         General g = new General();
         System.out.println(g.clockAngle(3, 40));
 
+        int[][] matrix = {{1,2,3}, {4,5,6}, {7,8,9}};
+        a.printSpiral(matrix);
     }
 
 }

@@ -39,4 +39,14 @@ public class ArraysStuff {
         return arr1;
     }
 
+    public void printSpiral(int[][] arr){
+        int top = 0;
+        int left = 0;
+        int right = arr.length -1;
+        int bottome = arr.length-1;
+
+
+    }
+
+
 }
