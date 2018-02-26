@@ -18,6 +18,9 @@ public class TreeMain {
         System.out.println("min=" + t.getMin());
         System.out.println("max=" + t.getMax());
         System.out.println("depth="+t.deepestNode());
+        System.out.println(t.getData(t.findNode(26)));
+        System.out.println(t.getData(t.findNode(10)));
+        System.out.println(t.getData(t.findNode(100)));
 
         System.out.println("heap");
         Heap h = new Heap(20);

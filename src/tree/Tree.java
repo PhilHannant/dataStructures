@@ -12,6 +12,31 @@ public class Tree {
         }
     }
 
+    public Node findNode(int nodeData){
+        try {
+            if (root.data == nodeData) return root;
+            return findNodeHelper(root, nodeData);
+        } catch (NullPointerException ex) {
+            System.out.println("not found");
+            return null;
+        }
+    }
+
+    public Node findNodeHelper(Node current, int nodeData){
+        if(current != null) {
+            if (current.data == nodeData) {
+                return current;
+            } else {
+                if(nodeData < current.data){
+                    return findNodeHelper(current.left, nodeData);
+                } else {
+                    return findNodeHelper(current.right, nodeData);
+                }
+            }
+        }
+        return null;
+    }
+
     public void addNode(int data) {
         if (data != root.data) {
             addNodeHelper(data, root);
@@ -115,6 +140,16 @@ public class Tree {
         rightMax = deepestNodeHelper(current.right);
         leftMax = deepestNodeHelper(current.left);
         return Math.max(rightMax, leftMax) + 1;
+    }
+
+    public int getData(Node node){
+        try {
+            return node.data;
+        } catch (NullPointerException ex){
+            ex.printStackTrace();
+            System.out.println("not found");
+            return -1;
+        }
     }
 
     private class Node {
