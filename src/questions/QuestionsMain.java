@@ -30,6 +30,9 @@ public class QuestionsMain {
 
         a.printKthSmallest(input, queries);
 
+        System.out.println(a.findMaxSum(matrix, 2));
+        System.out.println(a.findMaxSum(matrix2, 3));
+
     }
 
 }
