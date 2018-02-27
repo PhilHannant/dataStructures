@@ -60,6 +60,10 @@ public class Tree {
         }
     }
 
+    public void deleteNode(){
+        //goto node, add all children to queue, remove pointers and then add children from queue to the tree.
+    }
+
     public void printInOrder(){
         System.out.println("inOrder");
         printInOrderHelper(root);
