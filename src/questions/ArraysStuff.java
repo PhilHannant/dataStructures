@@ -135,4 +135,15 @@ public class ArraysStuff {
         return 0;
     }
 
+
+    public int maxSumSubArray(int[] arr){
+        int maxSumHere = arr[0];
+        int currentMax = arr[0];
+        for(int i = 0; i < arr.length; i++){
+            maxSumHere = Math.max(arr[i], maxSumHere + arr[i]);
+            currentMax = Math.max(currentMax, maxSumHere);
+        }
+        return currentMax;
+    }
+
 }

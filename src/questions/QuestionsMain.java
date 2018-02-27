@@ -35,6 +35,9 @@ public class QuestionsMain {
 
         a.findMaxSumKadane(matrix, 3);
 
+        int [] subArr = {-2, -3, 4, -1, -2, 1, 5, -3};
+        System.out.println("maxSum is "+a.maxSumSubArray(subArr));
+
     }
 
 }
