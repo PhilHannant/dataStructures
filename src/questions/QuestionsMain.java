@@ -33,6 +33,8 @@ public class QuestionsMain {
         System.out.println(a.findMaxSum(matrix, 2));
         System.out.println(a.findMaxSum(matrix2, 3));
 
+        a.findMaxSumKadane(matrix, 3);
+
     }
 
 }

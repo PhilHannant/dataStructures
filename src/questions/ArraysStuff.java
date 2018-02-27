@@ -119,4 +119,20 @@ public class ArraysStuff {
         return maxSum;
     }
 
+    public int findMaxSumKadane(int[][] arr, int matrix){
+        System.out.println("findMaxSumKadane");
+        int[][] verticalSum = new int[arr.length][arr[0].length];
+        for (int i = 0; i < arr.length; i++){
+            int sum = 0;
+            for(int j = 0; j < arr[0].length; j++){
+                sum+=arr[j][i];
+                verticalSum[j][i]=sum;
+                System.out.println(sum);
+            }
+        }
+
+
+        return 0;
+    }
+
 }
