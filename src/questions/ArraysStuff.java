@@ -107,10 +107,8 @@ public class ArraysStuff {
         for(int i = 0; i < arr.length-matrix+1; i++){
             for (int j = 0; j < arr.length-matrix+1; j++) {
                 int sum = 0;
-                System.out.println("subMatrix");
                 for (int k = i; k < matrix+i; k++) {
                     for(int l = j; l < matrix+j; l++) {
-                        System.out.println("[k="+k+"][l="+l+"]");
                         sum+= arr[k][l];
                     }
                 }
