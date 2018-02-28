@@ -39,29 +39,56 @@ public class Tree {
         return null;
     }
 
-    public Object[] findPrevious(int nodeData){
+    public Node findPrevious(int nodeData){
         try {
             if (root.data == nodeData){
-                Object[] nodeDetails = {root, "root"};
-                return nodeDetails;
+                return null;
             }
-            return findPreviousHelper(null, root, nodeData, "");
+            return findPreviousHelper(null, root, nodeData);
         } catch (NullPointerException ex) {
             System.out.println("not found");
             return null;
         }
     }
 
-    public Object[] findPreviousHelper(Node previous, Node current, int nodeData, String side){
+    public Node findPreviousHelper(Node previous, Node current, int nodeData){
+        if(current != null) {
+            if (current.data == nodeData) {
+                return previous;
+            } else {
+                if(nodeData < current.data){
+                    return findPreviousHelper(current, current.left, nodeData);
+                } else {
+                    return findPreviousHelper(current, current.right, nodeData);
+                }
+            }
+        }
+        return null;
+    }
+
+    public Object[] findPreviousObj(int nodeData){
+        try {
+            if (root.data == nodeData){
+                Object[] nodeDetails = {root, "root"};
+                return nodeDetails;
+            }
+            return findPreviousHelperObj(null, root, nodeData, "");
+        } catch (NullPointerException ex) {
+            System.out.println("not found");
+            return null;
+        }
+    }
+
+    public Object[] findPreviousHelperObj(Node previous, Node current, int nodeData, String side){
         if(current != null) {
             if (current.data == nodeData) {
                 Object[] nodeDetails = {previous, side};
                 return nodeDetails;
             } else {
                 if(nodeData < current.data){
-                    return findPreviousHelper(current, current.left, nodeData, "left");
+                    return findPreviousHelperObj(current, current.left, nodeData, "left");
                 } else {
-                    return findPreviousHelper(current, current.right, nodeData, "right");
+                    return findPreviousHelperObj(current, current.right, nodeData, "right");
                 }
             }
         }
@@ -69,55 +96,73 @@ public class Tree {
     }
 
     public void addNode(int data) {
-        if(root == null){
-
-        }
-        if (data != root.data || root == null) {
-            addNodeHelper(data, root);
+        if (data != root.data) {
+            addNode(data, root);
         }
     }
 
 
-    public void addNodeHelper(int data, Node currentNode){
+    public void addNode(int data, Node currentNode){
         if(data < currentNode.data) {
             if (currentNode.left == null) {
                 currentNode.left = new Node(null, null, data);
             } else {
-                addNodeHelper(data, currentNode.left);
+                addNode(data, currentNode.left);
             }
         } else if (data > currentNode.data){
             if (currentNode.right == null) {
                 currentNode.right = new Node(null, null, data);
             } else {
-                addNodeHelper(data, currentNode.right);
+                addNode(data, currentNode.right);
             }
         }
     }
 
-    public boolean deleteNode(int nodeData){
-        //goto node, add all children to queue, remove pointers and then add children from queue to the tree.
-        Node node = findNode(nodeData);
-        if (node == null) return false;
-        deleteQueue = new Queue<Integer>(null);
-        getChildren(node);
-        Object[] previous = findPrevious(nodeData);
-        Node previousNode = (Node) previous[0];
-        System.out.println(previous[1]);
-        if (previous[1] == "root") {
-            root = null;
-        } else if (previous[1] == "left"){
-            previousNode.left = null;
-        }  else {
-            previousNode.right = null;
+    public boolean deleteNode(int nodeData) {
+        //if root is null exit
+        if (root == null) {
+            return false;
+        } else {
+            Node nodeToRemove = findNode(nodeData);
+            Node previous = findPrevious(nodeData);
+            deleteNode(previous, nodeToRemove, nodeData);
+            return true;
         }
-        deleteQueue.deQueue();
-          while(!deleteQueue.isEmpty()){
-            if (deleteQueue.peek() != null) {
-                addNode(deleteQueue.deQueueWithData());
+    }
+
+
+    public boolean deleteNode(Node previous, Node nodeToRemove, int nodeDate){
+
+
+        if(previous.data < nodeToRemove.data){
+            if(nodeToRemove.right == null && nodeToRemove.left == null){
+                previous.right = null;
+            } else if (nodeToRemove.right != null && nodeToRemove.left == null){
+                previous.right = nodeToRemove.right;
+            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
+                previous.right = nodeToRemove.left;
+            } else {
+                nodeToRemove.data = getMin(nodeToRemove.right);
             }
         }
-        return true;
+
+
+        //if left child and no children
+        if(previous.data > nodeToRemove.data){
+            if(nodeToRemove.right == null && nodeToRemove.left == null){
+                previous.left = null;
+            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
+                previous.left = nodeToRemove.left;
+            }  else if (nodeToRemove.right != null && nodeToRemove.left == null){
+                previous.left = nodeToRemove.right;
+            } else {
+                nodeToRemove.data = getMin(nodeToRemove.right);
+
+            }
+        }
+
     }
+
 
     public void getChildren(Node current){
         if(current == null) {
@@ -184,13 +229,13 @@ public class Tree {
     }
 
     public int getMin(){
-        return getMinHelper(root);
+        return getMin(root);
     }
 
-    public int getMinHelper(Node current){
+    public int getMin(Node current){
         if(current.left == null){
             return current.data;
-        } return getMinHelper(current.left);
+        } return getMin(current.left);
     }
 
     public int deepestNode(){
