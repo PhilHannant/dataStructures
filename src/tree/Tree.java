@@ -132,6 +132,9 @@ public class Tree {
 
 
     public Node deleteNode(Node previous, Node nodeToRemove, int nodeDate){
+        /*if node is null return null
+        if nodeData == node.data
+        */
         if(nodeToRemove == null){
             return null;
         } else if(nodeToRemove.left == null){
