@@ -3,6 +3,17 @@ package lists;
 public class HashMap{
 
     private HashNode[] hashMap;
+    private int size;
+
+    public HashMap(int size){
+        hashMap = new HashNode[size];
+        this.size = size;
+    }
+
+    public void add(String value){
+        Key k = new Key(value);
+        HashNode hNode = new HashNode(k.hashCode(), value, k, null);
+    }
 
 
     private class HashNode{
@@ -18,25 +29,39 @@ public class HashMap{
             this.key = key;
             this.next = next;
         }
+
+        public int getHash(HashNode hNode){
+            return hNode.hash;
+        }
+
+        public String getValue(HashNode hNode){
+            return hNode.value;
+        }
+
+        public Key getKey(HashNode hNode){
+            return hNode.key;
+        }
+
+        public HashNode getNext(HashNode hNode){
+            return hNode.next;
+        }
     }
 
-    private class Key
-    {
-        String key;
-        Key(String key)
-        {
+    private class Key {
+
+        private String key;
+
+        public Key(String key) {
             this.key = key;
         }
 
         @Override
-        public int hashCode()
-        {
+        public int hashCode() {
             return (int)key.charAt(0);
         }
 
         @Override
-        public boolean equals(Object obj)
-        {
+        public boolean equals(Object obj) {
             return key.equals((String)obj);
         }
     }
