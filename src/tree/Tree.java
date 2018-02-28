@@ -1,10 +1,12 @@
 package tree;
 
+import lists.LinkedList;
 import lists.Queue;
 
 public class Tree {
 
     private Node root;
+    private Queue<Integer> deleteQueue;
 
     public Tree(int rootData){
         if (root == null) {
@@ -37,8 +39,40 @@ public class Tree {
         return null;
     }
 
+    public Object[] findPrevious(int nodeData){
+        try {
+            if (root.data == nodeData){
+                Object[] nodeDetails = {root, "root"};
+                return nodeDetails;
+            }
+            return findPreviousHelper(null, root, nodeData, "");
+        } catch (NullPointerException ex) {
+            System.out.println("not found");
+            return null;
+        }
+    }
+
+    public Object[] findPreviousHelper(Node previous, Node current, int nodeData, String side){
+        if(current != null) {
+            if (current.data == nodeData) {
+                Object[] nodeDetails = {previous, side};
+                return nodeDetails;
+            } else {
+                if(nodeData < current.data){
+                    return findPreviousHelper(current, current.left, nodeData, "left");
+                } else {
+                    return findPreviousHelper(current, current.right, nodeData, "right");
+                }
+            }
+        }
+        return null;
+    }
+
     public void addNode(int data) {
-        if (data != root.data) {
+        if(root == null){
+
+        }
+        if (data != root.data || root == null) {
             addNodeHelper(data, root);
         }
     }
@@ -60,8 +94,38 @@ public class Tree {
         }
     }
 
-    public void deleteNode(){
+    public boolean deleteNode(int nodeData){
         //goto node, add all children to queue, remove pointers and then add children from queue to the tree.
+        Node node = findNode(nodeData);
+        if (node == null) return false;
+        deleteQueue = new Queue<Integer>(null);
+        getChildren(node);
+        Object[] previous = findPrevious(nodeData);
+        Node previousNode = (Node) previous[0];
+        System.out.println(previous[1]);
+        if (previous[1] == "root") {
+            root = null;
+        } else if (previous[1] == "left"){
+            previousNode.left = null;
+        }  else {
+            previousNode.right = null;
+        }
+        deleteQueue.deQueue();
+          while(!deleteQueue.isEmpty()){
+            if (deleteQueue.peek() != null) {
+                addNode(deleteQueue.deQueueWithData());
+            }
+        }
+        return true;
+    }
+
+    public void getChildren(Node current){
+        if(current == null) {
+            return;
+        }
+        deleteQueue.enQueue(current.data);
+        getChildren(current.left);
+        getChildren(current.right);
     }
 
     public void printInOrder(){

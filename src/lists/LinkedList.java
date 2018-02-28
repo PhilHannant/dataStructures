@@ -18,6 +18,10 @@ public class LinkedList<T> {
         }
     }
 
+    public T getData(Node<T> node){
+        return node.data;
+    }
+
     public void addNode(T data){
         if (root == null){
             this.root = new Node<T>(data, null);
@@ -46,7 +50,7 @@ public class LinkedList<T> {
     public void printList(){
         Node<T> start = root;
         while(start != null){
-            System.out.println(start.data);
+            System.out.print(start.data + " ");
             start = start.next;
         }
     }
@@ -72,13 +76,14 @@ public class LinkedList<T> {
     }
 
     public Node<T> moveRoot(){
+        if(root == null){return null;}
+        Node<T> returnNode = root;
         if(!isEmpty() && getSize() != 1){
-            Node<T> returnNode = root;
             root = root.next;
             return returnNode;
         } else {
             root = null;
-            return null;
+            return returnNode;
         }
     }
 
@@ -151,6 +156,10 @@ public class LinkedList<T> {
         } else {
             return findPrevious(node.next, nodeToFind);
         }
+    }
+
+    public T getRootData(){
+        return root.data;
     }
 
     public Node<T> getRoot(){

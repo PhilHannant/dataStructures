@@ -18,6 +18,11 @@ public class Queue<T> extends LinkedList<T> {
         return moveRoot();
     }
 
+    public T deQueueWithData(){
+        Node<T> node = deQueue();
+        if(node == null) return null;
+        return node.getData();
+    }
 
 
     public Node<T> peek(){
