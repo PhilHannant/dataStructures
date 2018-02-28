@@ -10,40 +10,42 @@ public class HashMap{
         this.size = size;
     }
 
-    public void add(String value){
-        Key k = new Key(value);
-        HashNode hNode = new HashNode(k.hashCode(), value, k, null);
+    public void add(String key, int value){
+        Key k = new Key(key);
+        HashNode hNode = new HashNode(k.hashCode(), k, value, null);
+        int index = k.hashCode() & size -1;
+        hashMap[index] = hNode;
     }
 
 
     private class HashNode{
 
         private int hash;
-        private String value;
         private Key key;
+        private int value;
         private HashNode next;
 
-        public HashNode(int hash, String value, Key key, HashNode next){
+        public HashNode(int hash, Key key, int value, HashNode next){
             this.hash = hash;
             this.value = value;
             this.key = key;
             this.next = next;
         }
 
-        public int getHash(HashNode hNode){
-            return hNode.hash;
+        public int getHash(){
+            return this.hash;
         }
 
-        public String getValue(HashNode hNode){
-            return hNode.value;
+        public int getValue(){
+            return this.value;
         }
 
-        public Key getKey(HashNode hNode){
-            return hNode.key;
+        public Key getKey(){
+            return this.key;
         }
 
-        public HashNode getNext(HashNode hNode){
-            return hNode.next;
+        public HashNode getNext(){
+            return this.next;
         }
     }
 
