@@ -26,29 +26,29 @@ public class TreeMain {
 
 
 
-//        System.out.println("heap");
-//        Heap h = new Heap(20);
-//        h.insertKey(30);
-//        System.out.println("min="+h.getMin());
-//        h.insertKey(2);
-//        System.out.println("min="+h.getMin());
-//        h.insertKey(15);
-//        System.out.println("min="+h.getMin());
-//        h.insertKey(5);
-//        System.out.println("min="+h.getMin());
-//        h.insertKey(4);
-//        System.out.println("min="+h.getMin());
-//        h.insertKey(45);
-//        System.out.println("min="+h.getMin());
-//        h.print();
-//        System.out.println("extract="+h.extractMin());
-//        h.print();
-//        h.decreaseKey(3, 2);
-//        System.out.println("decrease");
-//        h.print();
-//        h.deleteKey(2);
-//        System.out.println("delete");
-//        h.print();
+        System.out.println("heap");
+        Heap h = new Heap(20);
+        h.insertKey(30);
+        System.out.println("min="+h.getMin());
+        h.insertKey(2);
+        System.out.println("min="+h.getMin());
+        h.insertKey(15);
+        System.out.println("min="+h.getMin());
+        h.insertKey(5);
+        System.out.println("min="+h.getMin());
+        h.insertKey(4);
+        System.out.println("min="+h.getMin());
+        h.insertKey(45);
+        System.out.println("min="+h.getMin());
+        h.print();
+        System.out.println("extract="+h.extractMin());
+        h.print();
+        h.decreaseKey(3, 2);
+        System.out.println("decrease");
+        h.print();
+        h.deleteKey(2);
+        System.out.println("delete");
+        h.print();
 
 
     }
