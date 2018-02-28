@@ -131,35 +131,40 @@ public class Tree {
     }
 
 
-    public boolean deleteNode(Node previous, Node nodeToRemove, int nodeDate){
+    public Node deleteNode(Node previous, Node nodeToRemove, int nodeDate){
+        if(nodeToRemove == null){
+            return null;
+        } else if(nodeToRemove.left == null){
+            previous.right = nodeToRemove.right;
+        } else if (nodeToRemove.right == null){
+            previous.left = nodeToRemove.left;
 
-
-        if(previous.data < nodeToRemove.data){
-            if(nodeToRemove.right == null && nodeToRemove.left == null){
-                previous.right = null;
-            } else if (nodeToRemove.right != null && nodeToRemove.left == null){
-                previous.right = nodeToRemove.right;
-            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
-                previous.right = nodeToRemove.left;
-            } else {
-                nodeToRemove.data = getMin(nodeToRemove.right);
-            }
-        }
-
-
-        //if left child and no children
-        if(previous.data > nodeToRemove.data){
-            if(nodeToRemove.right == null && nodeToRemove.left == null){
-                previous.left = null;
-            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
-                previous.left = nodeToRemove.left;
-            }  else if (nodeToRemove.right != null && nodeToRemove.left == null){
-                previous.left = nodeToRemove.right;
-            } else {
-                nodeToRemove.data = getMin(nodeToRemove.right);
-
-            }
-        }
+//        if(previous.data < nodeToRemove.data){
+//            if(nodeToRemove.right == null && nodeToRemove.left == null){
+//                previous.right = null;
+//            } else if (nodeToRemove.right != null && nodeToRemove.left == null){
+//                previous.right = nodeToRemove.right;
+//            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
+//                previous.right = nodeToRemove.left;
+//            } else {
+//                nodeToRemove.data = getMin(nodeToRemove.right);
+//            }
+//        }
+//
+//
+//        //if left child and no children
+//        if(previous.data > nodeToRemove.data){
+//            if(nodeToRemove.right == null && nodeToRemove.left == null){
+//                previous.left = null;
+//            } else if (nodeToRemove.left != null && nodeToRemove.right == null){
+//                previous.left = nodeToRemove.left;
+//            }  else if (nodeToRemove.right != null && nodeToRemove.left == null){
+//                previous.left = nodeToRemove.right;
+//            } else {
+//                nodeToRemove.data = getMin(nodeToRemove.right);
+//
+//            }
+//        }
 
     }
 
