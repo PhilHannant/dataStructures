@@ -59,6 +59,30 @@ public class HashMap{
         return false;
     }
 
+    public boolean delete(String keyValue){
+        if(contains(keyValue)){
+            Key k = new Key(keyValue);
+            int index = k.hashCode() & size -1;
+            if(hashMap[index].getKey().key.equals(keyValue)){
+                hashMap[index] = null;
+                return true;
+            } else {
+                return delete(hashMap[index], null, keyValue);
+            }
+        }
+        return false;
+    }
+
+    public boolean delete(HashNode hashNode, HashNode previous, String keyValue){
+        if(hashNode.getKey().key.equals(keyValue)){
+            previous.next = hashNode.next;
+            return true;
+        } else{
+            delete(hashNode.next, hashNode, keyValue);
+        }
+        return false;
+    }
+
     public void reSize(){
         if(isFull()){
             HashNode[] oldMap = new HashNode[size];

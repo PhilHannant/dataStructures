@@ -75,6 +75,7 @@ public class Main {
         hm.add("6", 100);
         hm.add("7", 100);
         System.out.println(hm.contains("vishal1"));
+        System.out.println(hm.delete("z"));
 
 
     }
