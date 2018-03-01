@@ -55,6 +55,12 @@ public class Main {
         System.out.println(q.isEmpty());
 
 
+        System.out.println("HashMap");
+        HashMap hm = new HashMap(16);
+        hm.add("vishal", 10);
+        hm.add("vishal1", 20);
+        System.out.println(hm.contains("vishal1"));
+
 
     }
 }
