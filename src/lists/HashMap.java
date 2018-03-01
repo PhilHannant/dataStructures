@@ -14,7 +14,20 @@ public class HashMap{
         Key k = new Key(key);
         HashNode hNode = new HashNode(k.hashCode(), k, value, null);
         int index = k.hashCode() & size -1;
-        hashMap[index] = hNode;
+        if(!isFull()) {
+            if (hashMap[index] != null) {
+                hashMap[index] = hNode;
+            } else {
+                hashMap[index].next = hNode;
+            }
+        }
+    }
+
+    public boolean isFull(){
+        for(int i = 0; i < hashMap.length; i++){
+            if(hashMap[i] == null) return false;
+        }
+        return true;
     }
 
 
