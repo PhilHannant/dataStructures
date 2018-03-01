@@ -56,9 +56,24 @@ public class Main {
 
 
         System.out.println("HashMap");
-        HashMap hm = new HashMap(16);
+        HashMap hm = new HashMap(10);
         hm.add("vishal", 10);
         hm.add("vishal1", 20);
+        System.out.println(hm.contains("vishal1"));
+        hm.add("}", 30);
+        hm.add("a", 1);
+        hm.add("!", 100);
+        hm.add("b", 110);
+        hm.add("c", 120);
+        hm.add("d", 130);
+        hm.add("e", 140);
+        hm.add("z", 150);
+        hm.add("h", 160);
+        hm.add("1", 100);
+        hm.add("4", 100);
+        hm.add("5", 100);
+        hm.add("6", 100);
+        hm.add("7", 100);
         System.out.println(hm.contains("vishal1"));
 
 

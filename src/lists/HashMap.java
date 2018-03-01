@@ -14,21 +14,35 @@ public class HashMap{
         Key k = new Key(key);
         HashNode hNode = new HashNode(k.hashCode(), k, value, null);
         int index = k.hashCode() & size -1;
-        System.out.println("Inserting at " + index);
-        if(!isFull()) {
-            if (hashMap[index] == null) {
-                hashMap[index] = hNode;
-            } else {
-                hashMap[index].next = hNode;
-            }
+        if(isFull()) {
+            reSize();
+        }
+        if (hashMap[index] == null) {
+            hashMap[index] = hNode;
+        } else {
+            addNode(hashMap[index], hNode);
+        }
+    }
+
+    public void addNode(HashNode hNode, HashNode nodeToAdd){
+        if(hNode.next == null){
+            hNode.next = nodeToAdd;
+        } else {
+            addNode(hNode.next, nodeToAdd);
         }
     }
 
     public boolean isFull(){
+        int count = 0;
         for(int i = 0; i < hashMap.length; i++){
-            if(hashMap[i] == null) return false;
+            if(hashMap[i] != null) {
+                count++;
+            }
         }
-        return true;
+        if(count == size){
+            return true;
+        }
+        return false;
     }
 
     public boolean contains(String keyToSearch){
@@ -39,12 +53,30 @@ public class HashMap{
         }
         HashNode h = hashMap[indexToSearch];
         while(h != null){
-            if(h.key.key == keyToSearch) return true;
+            if(h.getKey().key.equals(keyToSearch)) return true;
             h = h.next;
         }
         return false;
     }
 
+    public void reSize(){
+        if(isFull()){
+            HashNode[] oldMap = new HashNode[size];
+            for(int i = 0; i < oldMap.length; i++){
+                oldMap[i] = hashMap[i];
+            }
+            size = (int)(size * 1.5);
+            hashMap = new HashNode[size];
+            for(int i = 0; i < oldMap.length; i++){
+                HashNode node = oldMap[i];
+                while(node != null){
+                    int index = node.hashCode() & size-1;
+                    hashMap[index] = node;
+                    node = node.next;
+                }
+            }
+        }
+    }
 
     private class HashNode{
 
