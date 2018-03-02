@@ -75,7 +75,13 @@ public class Main {
         hm.add("6", 100);
         hm.add("7", 100);
         System.out.println(hm.contains("vishal1"));
-        System.out.println(hm.delete("z"));
+        System.out.println(hm.delete("vishal"));
+        System.out.println(hm.contains("vishal1"));
+        System.out.println(hm.delete("c"));
+        System.out.println(hm.contains("c"));
+        System.out.println(hm.contains("7"));
+        hm.printHashMap();
+
 
 
     }

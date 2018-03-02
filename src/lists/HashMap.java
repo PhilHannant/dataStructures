@@ -14,6 +14,7 @@ public class HashMap{
         Key k = new Key(key);
         HashNode hNode = new HashNode(k.hashCode(), k, value, null);
         int index = k.hashCode() & size -1;
+        System.out.println("inserting @index"+index);
         if(isFull()) {
             reSize();
         }
@@ -45,6 +46,25 @@ public class HashMap{
         return false;
     }
 
+    public void printHashMap(){
+        for(int i = 0; i < hashMap.length; i++){
+            if(hashMap[i] != null){
+                int index = hashMap[i].hashCode() & size-1;
+                System.out.println("{" + index +", " + hashMap[i].getKey().key +", " +hashMap[i].getValue()+", "+hashMap[i].getHash()+"}");
+                if(hashMap[i].next != null){
+                    printHashMap(hashMap[i].next);
+                }
+            }
+        }
+    }
+
+    public void printHashMap(HashNode node){
+        if (node == null) return;
+        int index = node.hashCode() & size-1;
+        System.out.println("{" + index +", " + node.getKey().key +", " + node.getValue()+", "+ node.getHash()+"}");
+        printHashMap(node.next);
+    }
+
     public boolean contains(String keyToSearch){
         Key k = new Key(keyToSearch);
         int indexToSearch = k.hashCode() & size-1;
@@ -63,9 +83,12 @@ public class HashMap{
         if(contains(keyValue)){
             Key k = new Key(keyValue);
             int index = k.hashCode() & size -1;
-            if(hashMap[index].getKey().key.equals(keyValue)){
+            if(hashMap[index].getKey().key.equals(keyValue) && hashMap[index].next == null){
+                System.out.println(hashMap[index].next);
                 hashMap[index] = null;
                 return true;
+            } else if (hashMap[index].getKey().key.equals(keyValue) && hashMap[index].next != null){
+                hashMap[index] = hashMap[index].next;
             } else {
                 return delete(hashMap[index], null, keyValue);
             }
