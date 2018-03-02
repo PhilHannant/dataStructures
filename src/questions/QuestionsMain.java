@@ -38,6 +38,12 @@ public class QuestionsMain {
         int [] subArr = {-2, -3, 4, -1, -2, 1, 5, -3};
         System.out.println("maxSum is "+a.maxSumSubArray(subArr));
 
+        int[] swapArr1 = {2, 7, 9, 5, 8, 7, 4};
+        System.out.println(g.swaps(swapArr1, 7));
+
+        int[] swapArr2 = {2, 1, 5, 6, 3};
+        System.out.println(g.swaps(swapArr2, 5));
+
     }
 
 }

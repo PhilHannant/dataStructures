@@ -8,15 +8,25 @@ public class General {
         return angle;
     }
 
-    public void bits(int[] arr){
-        int T = arr[0];
+    public int swaps(int[] arr, int k){
+        int[] positions = new int[arr.length];
+        int count = 0;
+        int swaps = 0;
         for(int i = 0; i < arr.length; i++){
-
+            if(arr[i] < k){
+                positions[count] = i;
+                count++;
+            }
         }
-        
+        int start = positions[0];
+        for(int j = 1; j < count; j++){
+            if(start + 1 != positions[j]){
+                swaps++;
+            }
+        }
+        return swaps;
     }
 
-    public void printBits(int N){
 
-    }
+
 }
