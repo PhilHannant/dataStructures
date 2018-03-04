@@ -44,6 +44,12 @@ public class QuestionsMain {
         int[] swapArr2 = {2, 1, 5, 6, 3};
         System.out.println(g.swaps(swapArr2, 5));
 
+        int[] bits = {34, 95, 34, 64, 45, 95, 16, 80, 80, 75, 3, 25, 75, 25, 31, 3, 64, 16, 31};
+        g.bitArr(19, bits);
+
+        int[] swap = {3, 2, 1};
+        g.swapper(swap);
+
     }
 
 }

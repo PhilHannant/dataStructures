@@ -12,6 +12,7 @@ public class TreeMain {
         t.addNode(1);
         t.addNode(6);
         t.addNode(10);
+        t.addNode(2);
         t.printInOrder();
         t.printPreOrder();
         t.printPostOrder();
@@ -23,6 +24,7 @@ public class TreeMain {
         //System.out.println(t.getData(t.findNode(100)));
         t.deleteNode(15);
         t.printInOrder();
+        System.out.println(t.checkBST());
 
 
 

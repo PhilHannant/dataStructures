@@ -192,6 +192,49 @@ public class Tree {
 
     }
 
+
+    public boolean isSubTreeLesser(Node node, int value) {
+        if (node == null) {
+            return true;
+        }
+        if (node.data < value && isSubTreeLesser(node.left, value) && isSubTreeLesser(node.right, value)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isSubTreeGreater(Node node, int value) {
+        if (node == null) {
+            return true;
+        }
+        if (node.data > value && isSubTreeGreater(node.left, value) && isSubTreeGreater(node.right, value)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean checkBST(){
+        System.out.println(Integer.MIN_VALUE);
+        return checkBST(root, Integer.MAX_VALUE, Integer.MIN_VALUE);
+    }
+
+    //O(N)
+
+    public boolean checkBST(Node node, int max, int min){
+        if(node == null ){
+            return true;
+        }
+        if (node.data > min && node.data < min &&
+                checkBST(node.left, node.data, min) &&
+                checkBST(node.right, max, node.data)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void printPostOrder(){
         System.out.println("postOrder");
         printPostOrderHelper(root);
