@@ -66,6 +66,55 @@ public class General {
         return swaps;
     }
 
+    public int anagram(String first, String second){
+        StringBuilder sb = new StringBuilder(second);
+        String ans = "";
+        for(int i = 0; i < first.length(); i++){
+            for(int j = 0; j < sb.length(); j++){
+                if(first.charAt(i) == sb.charAt(j)){
+                    ans+= first.charAt(i);
+                    ans+= second.charAt(j);
+                    sb.deleteCharAt(j);
+                    System.out.println("i="+i);
+                    System.out.println("j="+j);
+                    break;
+
+                }
+            }
+        }
+        return (first.length()+second.length() - ans.length());
+    }
+
+    public static int getDelta(int[] arr1, int[] arr2){
+        if(arr1.length != arr2.length){
+            return -1;
+        }
+        int delta = 0;
+        for(int i = 0; i < arr1.length; i++){
+            int difference = Math.abs(arr1[i] - arr2[i]);
+            delta+= difference;
+        }
+        return delta;
+    }
+
+    public static int[] getCharacterCounts(String str){
+        int[] charCounts = new int[26];
+        for(int i = 0; i < str.length(); i++){
+            char c = str.charAt(i);
+            int offset = (int) 'a';
+            int code = c - offset;
+            charCounts[code]++;
+        }
+        return charCounts;
+    }
+
+
+    public static int numberNeeded(String first, String second) {
+        int[] arr1 = getCharacterCounts(first);
+        int[] arr2 = getCharacterCounts(second);
+        return getDelta(arr1, arr2);
+    }
+
 
 
 
