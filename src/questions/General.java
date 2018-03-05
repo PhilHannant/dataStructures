@@ -1,6 +1,8 @@
 package questions;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class General {
 
@@ -75,8 +77,6 @@ public class General {
                     ans+= first.charAt(i);
                     ans+= second.charAt(j);
                     sb.deleteCharAt(j);
-                    System.out.println("i="+i);
-                    System.out.println("j="+j);
                     break;
 
                 }
@@ -115,6 +115,43 @@ public class General {
         return getDelta(arr1, arr2);
     }
 
+
+    public void getMedian(int n, int[] arr){
+        Queue<Integer> intPQ = new PriorityQueue<>(n);
+        int size = 0;
+        for(int a: arr){
+            intPQ.add(a);
+            size++;
+            printMedian(size, intPQ);
+
+        }
+    }
+
+    public void printMedian(int n, Queue<Integer> pq){
+        Queue<Integer> tempPQ = new PriorityQueue<>(n);
+        int count = 1;
+        while(!pq.isEmpty()){
+            System.out.println("n="+n);
+            System.out.println("count="+count);
+            System.out.println("n/2="+n/2);
+            System.out.println("n%2="+n%2);
+            if(n == 1){
+                System.out.println((double) pq.peek());
+            }
+            if(n%2 != 0 && count == n/2){
+                System.out.println((double) pq.peek());
+            }
+            if(n%2 == 0 && count == n/2){
+                System.out.println((double) pq.peek());
+            }
+            count++;
+            tempPQ.add(pq.poll());
+        }
+        while(!tempPQ.isEmpty()){
+            pq.add(tempPQ.poll());
+        }
+
+    }
 
 
 
