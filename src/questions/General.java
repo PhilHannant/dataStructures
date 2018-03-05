@@ -136,16 +136,20 @@ public class General {
             System.out.println("n/2="+n/2);
             System.out.println("n%2="+n%2);
             if(n == 1){
-                System.out.println((double) pq.peek());
+                System.out.println("if1");
+                        //(double) pq.peek());
             }
             if(n%2 != 0 && count == n/2){
-                System.out.println((double) pq.peek());
+                System.out.println("if2");
+                //System.out.println((double) (pq.peek()));
             }
             if(n%2 == 0 && count == n/2){
-                System.out.println((double) pq.peek());
+                System.out.println("if3");
+                //System.out.println((double) (pq.peek()+ tempPQ.peek())/2);
             }
             count++;
             tempPQ.add(pq.poll());
+            System.out.println(pq.peek()+ tempPQ.peek());
         }
         while(!tempPQ.isEmpty()){
             pq.add(tempPQ.poll());
