@@ -1,8 +1,6 @@
 package questions;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class General {
 
@@ -116,44 +114,83 @@ public class General {
     }
 
 
-    public void getMedian(int n, int[] arr){
-        Queue<Integer> intPQ = new PriorityQueue<>(n);
-        int size = 0;
-        for(int a: arr){
-            intPQ.add(a);
-            size++;
-            printMedian(size, intPQ);
+    public double[] getMedians(int n, int[] arr){
+        PriorityQueue<Integer> high = new PriorityQueue<Integer>(n);
+        PriorityQueue<Integer> low = new PriorityQueue<Integer>(new Comparator<Integer> () {
+            public int compare(Integer x, Integer y) {
+                return y - x;
+            }
+        });
+        double medians[] = new double[arr.length];
+        for(int i = 0; i < arr.length; i++){
+            int number = arr[i];
+            addNumber(number, low, high);
+            balanceQueues(low, high);
+            medians[i] = getMedian(low, high);
+            System.out.println(medians[i]);
+        }
+        return medians;
+    }
 
+    public void addNumber(int number, PriorityQueue<Integer> low, PriorityQueue<Integer> high){
+        if(low.size() == 0 || number < low.peek()){
+            low.add(number);
+        } else {
+            high.add(number);
+        }
+    }
+
+    public void balanceQueues(PriorityQueue<Integer> low, PriorityQueue<Integer> high){
+        if(low.size() != high.size()){
+            if(low.size() > high.size() && low.size() - high.size() > 1){
+                high.add(low.poll());
+            }
+            if(high.size() > low.size() && high.size() - low.size() > 1){
+                low.add(high.poll());
+            }
+        }
+
+    }
+
+    public double getMedian(PriorityQueue<Integer> low, PriorityQueue<Integer> high){
+        if(low.size() != high.size()){
+           if(low.size() > high.size()){
+               return low.peek();
+           } else {
+               return high.peek();
+           }
+        } else {
+            return ((double) (low.peek() + high.peek())/2);
         }
     }
 
     public void printMedian(int n, Queue<Integer> pq){
-        Queue<Integer> tempPQ = new PriorityQueue<>(n);
-        int count = 1;
-        while(!pq.isEmpty()){
-            System.out.println("n="+n);
-            System.out.println("count="+count);
-            System.out.println("n/2="+n/2);
-            System.out.println("n%2="+n%2);
-            if(n == 1){
-                System.out.println("if1");
-                        //(double) pq.peek());
+        List<Integer> tempPQ = new ArrayList<>(pq);
+        Collections.sort(tempPQ);
+
+        if(n == 1){
+            System.out.println((double) tempPQ.get(0));
+        } else {
+            if (n % 2 != 0) {
+                System.out.println((double) tempPQ.get(n / 2));
             }
-            if(n%2 != 0 && count == n/2){
-                System.out.println("if2");
-                //System.out.println((double) (pq.peek()));
+            if (n % 2 == 0) {
+                System.out.println((double) (tempPQ.get((n / 2) - 1) + tempPQ.get(n / 2)) / 2);
             }
-            if(n%2 == 0 && count == n/2){
-                System.out.println("if3");
-                //System.out.println((double) (pq.peek()+ tempPQ.peek())/2);
-            }
-            count++;
-            tempPQ.add(pq.poll());
-            System.out.println(pq.peek()+ tempPQ.peek());
         }
-        while(!tempPQ.isEmpty()){
-            pq.add(tempPQ.poll());
+    }
+
+
+    public void iceCreamSolver(int arr[], int money){
+        int[] menu = arr.clone();
+        Arrays.sort(menu);
+        for(int i = 0; i < menu.length; i++){
+            int compliment = money - menu[i];
+            int index = Arrays.binarySearch(menu, i + 1, menu.length, compliment);
+
         }
+
+
 
     }
 

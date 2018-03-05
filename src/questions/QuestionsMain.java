@@ -12,9 +12,12 @@ public class QuestionsMain {
         System.out.println(Arrays.toString(a.mergeArrays(arr1, arr2)));
 
         Recurssion r = new Recurssion();
-        System.out.println(r.fibonacci(10));
-        System.out.println(r.fibonacci(4));
-        System.out.println(r.fibonacci(25));
+        int[] fib1 = new int[11];
+        int[] fib2 = new int[5];
+        int[] fib3 = new int[26];
+        System.out.println(r.fibonacci(10, fib1));
+        System.out.println(r.fibonacci(4, fib2));
+        System.out.println(r.fibonacci(25, fib3));
 
         General g = new General();
         System.out.println(g.clockAngle(3, 40));
@@ -54,8 +57,11 @@ public class QuestionsMain {
         System.out.println(g.anagram(str1, str2));
 
         int[] array = {12, 4, 5, 3, 8, 7};
-        g.getMedian(6, array);
+        g.getMedians(6, array).toString();
 
+        int[] iceCream = {1, 4, 5, 3, 2};
+        int money = 4;
+        g.iceCreamSolver(iceCream, money);
     }
 
 }
