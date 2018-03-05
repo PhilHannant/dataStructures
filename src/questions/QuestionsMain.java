@@ -62,6 +62,10 @@ public class QuestionsMain {
         int[] iceCream = {1, 4, 5, 3, 2};
         int money = 4;
         g.iceCreamSolver(iceCream, money);
+
+        String[] mag = {"two", "times", "three", "is", "not", "four"};
+        String[] ran = {"two", "times", "two", "is", "four"};
+        System.out.println(g.ransom(mag, ran));
     }
 
 }

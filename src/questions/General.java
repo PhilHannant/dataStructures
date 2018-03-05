@@ -189,9 +189,36 @@ public class General {
             int index = Arrays.binarySearch(menu, i + 1, menu.length, compliment);
 
         }
+    }
 
+    public boolean ransom(String[] magazine, String[] ransom){
+        HashMap<String, Integer> mag = new HashMap<>();
+        HashMap<String, Integer> ran = new HashMap<>();
 
+        for(int i = 0; i < magazine.length; i++){
+            if(!mag.containsKey(magazine[i])){
+                mag.put(magazine[i], 0);
+            } else {
+                mag.put(magazine[i], mag.get(magazine[i]) + 1);
+            }
+        }
 
+        for(int j = 0; j < ransom.length; j++){
+            if(!ran.containsKey(ransom[j])){
+                ran.put(ransom[j], 0);
+            } else {
+                ran.put(ransom[j], ran.get(ransom[j]) + 1);
+            }
+        }
+
+        for(String key: ran.keySet()){
+            if(!mag.containsKey(key)) return false;
+            int occurence = ran.get(key);
+            if(mag.get(key) < occurence){
+                return false;
+            }
+        }
+        return true;
     }
 
 
