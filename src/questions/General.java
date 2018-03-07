@@ -237,4 +237,55 @@ public class General {
     }
 
 
+    public void sherlock(String str){
+
+        char[] arr = str.toCharArray();
+        HashMap<Character, Integer> charCount = new HashMap<>();
+        Set<Character> charSet = new HashSet<>();
+
+        for(int i = 0; i < arr.length; i++){
+            if(charCount.containsKey(arr[i])){
+                charCount.put(arr[i], charCount.get(arr[i]) + 1);
+            } else {
+                charCount.put(arr[i], 1);
+                charSet.add(arr[i]);
+            }
+        }
+
+        //need to add way of checking if more than
+        System.out.println(charCount.toString());
+        if(checkDiff(charCount, charSet)) System.out.println("YES");
+        else System.out.println("NO");
+    }
+
+    public boolean checkDiff(HashMap<Character, Integer> hm, Set<Character> cSet){
+        int oneCount = 0;
+        int difference;
+        int lastValue = 0;
+        for(Character c: cSet){
+            if(lastValue == 0){
+                lastValue = hm.get(c);
+            } else {
+                difference = Math.abs(lastValue - hm.get(c));
+
+                if(difference > 1 && hm.get(c) != 1) {
+                    return false;
+                }
+                if(difference != 1){
+                    lastValue = hm.get(c);
+                }
+                if(difference == 1){
+                    oneCount++;
+                }
+
+            }
+
+        }
+
+        if(oneCount > 1) return false;
+        return true;
+    }
+
+
+
 }
