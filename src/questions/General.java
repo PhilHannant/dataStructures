@@ -221,6 +221,20 @@ public class General {
         return true;
     }
 
+    public String URLify(String str, int length){
+        StringBuilder s = new StringBuilder();
+        char[] arr = str.toCharArray();
+        System.out.println(arr[2]);
+        for(int i = 0; i < length; i++){
+            if(arr[i] == ' '){
+                s.append("20%");
+            } else {
+                s.append(arr[i]);
+            }
+
+        }
+        return s.toString();
+    }
 
 
 }
