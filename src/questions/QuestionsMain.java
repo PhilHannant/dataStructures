@@ -56,6 +56,17 @@ public class QuestionsMain {
         int[] array = {12, 4, 5, 3, 8, 7};
         g.getMedian(6, array);
 
+        g.isPrime(5);
+        g.isPrime(1);
+        g.isPrime(4);
+        g.isPrime(9);
+        g.isPrime(16);
+        g.isPrime(25);
+        g.isPrime(36);
+        g.isPrime(841);
+        g.isPrime(907);
+
+        System.out.println(g.URLify("Mr John Smith    ", 13));
     }
 
 }

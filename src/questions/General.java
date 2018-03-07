@@ -1,6 +1,7 @@
 package questions;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -128,35 +129,67 @@ public class General {
     }
 
     public void printMedian(int n, Queue<Integer> pq){
-        Queue<Integer> tempPQ = new PriorityQueue<>(n);
-        int count = 1;
-        while(!pq.isEmpty()){
-            System.out.println("n="+n);
-            System.out.println("count="+count);
-            System.out.println("n/2="+n/2);
-            System.out.println("n%2="+n%2);
-            if(n == 1){
-                System.out.println("if1");
-                        //(double) pq.peek());
-            }
-            if(n%2 != 0 && count == n/2){
-                System.out.println("if2");
-                //System.out.println((double) (pq.peek()));
-            }
-            if(n%2 == 0 && count == n/2){
-                System.out.println("if3");
-                //System.out.println((double) (pq.peek()+ tempPQ.peek())/2);
-            }
-            count++;
-            tempPQ.add(pq.poll());
-            System.out.println(pq.peek()+ tempPQ.peek());
-        }
-        while(!tempPQ.isEmpty()){
-            pq.add(tempPQ.poll());
-        }
-
+//        Queue<Integer> tempPQ = new PriorityQueue<>(n);
+//        int count = 1;
+//        while(!pq.isEmpty()){
+//            System.out.println("n="+n);
+//            System.out.println("count="+count);
+//            System.out.println("n/2="+n/2);
+//            System.out.println("n%2="+n%2);
+//            if(n == 1){
+//                System.out.println("if1");
+//                        //(double) pq.peek());
+//            }
+//            if(n%2 != 0 && count == n/2){
+//                System.out.println("if2");
+//                //System.out.println((double) (pq.peek()));
+//            }
+//            if(n%2 == 0 && count == n/2){
+//                System.out.println("if3");
+//                //System.out.println((double) (pq.peek()+ tempPQ.peek())/2);
+//            }
+//            count++;
+//            tempPQ.add(pq.poll());
+//            System.out.println(pq.peek()+ tempPQ.peek());
+//        }
+//        while(!tempPQ.isEmpty()){
+//            pq.add(tempPQ.poll());
+//        }
     }
 
+    public  void isPrime(int number){
+        System.out.println(Math.sqrt(number));
+        if(primeTester(2, (double) number, true)){
+            System.out.println("Prime");
+        } else {
+            System.out.println("Not prime");
+        }
+    }
+
+    public  boolean primeTester(int div, double number, boolean check){
+
+        if(div > Math.sqrt(number)) return check;
+        if(number % div != 0){
+            return primeTester(div+1, number, true);
+        } else {
+            return false;
+        }
+    }
+
+    public String URLify(String str, int length){
+        StringBuilder s = new StringBuilder();
+        char[] arr = str.toCharArray();
+        System.out.println(arr[2]);
+        for(int i = 0; i < length; i++){
+            if(arr[i] == ' '){
+                s.append("20%");
+            } else {
+                s.append(arr[i]);
+            }
+
+        }
+        return s.toString();
+    }
 
 
 }
