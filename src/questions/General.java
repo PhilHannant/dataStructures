@@ -237,8 +237,8 @@ public class General {
     }
 
 
-    public void sherlock(String str){
-
+    public String sherlock(String str){
+        if(str.isEmpty() || str == null)return "NO";
         char[] arr = str.toCharArray();
         HashMap<Character, Integer> charCount = new HashMap<>();
         Set<Character> charSet = new HashSet<>();
@@ -252,39 +252,65 @@ public class General {
             }
         }
 
-        //need to add way of checking if more than
-        System.out.println(charCount.toString());
-        if(checkDiff(charCount, charSet)) System.out.println("YES");
-        else System.out.println("NO");
+        if(checkDiff(charCount, charSet)) return "YES";
+        return "NO";
     }
 
-    public boolean checkDiff(HashMap<Character, Integer> hm, Set<Character> cSet){
-        int oneCount = 0;
-        int difference;
-        int lastValue = 0;
-        for(Character c: cSet){
-            if(lastValue == 0){
-                lastValue = hm.get(c);
-            } else {
-                difference = Math.abs(lastValue - hm.get(c));
 
-                if(difference > 1 && hm.get(c) != 1) {
-                    return false;
-                }
-                if(difference != 1){
-                    lastValue = hm.get(c);
-                }
-                if(difference == 1){
-                    oneCount++;
-                }
-
-            }
-
+    public boolean checkDiff(HashMap<Character, Integer> hm, Set<Character> cSet) {
+        int max = 0;
+        int min;
+        int freqMin = 0;
+        int freqMax = 0;
+        for (Character c : cSet) {
+            max = Math.max(max, hm.get(c));
         }
 
-        if(oneCount > 1) return false;
-        return true;
+        min = max;
+        for(Character c: cSet){
+            min = Math.min(min , hm.get(c));
+        }
+
+
+        for (Character c : cSet) {
+            if (max == hm.get(c)) {
+                freqMax++;
+            }
+            if (min == hm.get(c)) {
+                freqMin++;
+            }
+        }
+
+        if(max == min || (freqMax==cSet.size()-1 && min==1) || (freqMin==cSet.size()-1 && max-min==1)){
+
+            return true;
+        } else {
+            return false;
+        }
     }
+//
+//            if(lastValue == 0){
+//                lastValue = hm.get(c);
+//            } else {
+//                difference = Math.abs(lastValue - hm.get(c));
+//
+//                if(difference > 1 && hm.get(c) != 1) {
+//                    return false;
+//                }
+//                if(difference != 1){
+//                    lastValue = hm.get(c);
+//                }
+//                if(difference == 1){
+//                    oneCount++;
+//                }
+//
+//            }
+//
+//        }
+//
+//        if(oneCount > 1) return false;
+//        return true;
+
 
 
 
