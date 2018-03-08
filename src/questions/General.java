@@ -288,28 +288,6 @@ public class General {
             return false;
         }
     }
-//
-//            if(lastValue == 0){
-//                lastValue = hm.get(c);
-//            } else {
-//                difference = Math.abs(lastValue - hm.get(c));
-//
-//                if(difference > 1 && hm.get(c) != 1) {
-//                    return false;
-//                }
-//                if(difference != 1){
-//                    lastValue = hm.get(c);
-//                }
-//                if(difference == 1){
-//                    oneCount++;
-//                }
-//
-//            }
-//
-//        }
-//
-//        if(oneCount > 1) return false;
-//        return true;
 
 
 

@@ -72,6 +72,16 @@ public class QuestionsMain {
         System.out.println(g.sherlock("cjwtvyeawwjtyzirlkscvifxwwtmpxxzhejsknsxjubjfoyivwtngncfnlqezgtdekwmiiiqrnmpdqondaxwzpuhplxlacewjvfckwkljpzmiwuryfddtddjfpeqvjyxoesvehmsqysjkpnnfpqrqkcbmfntbkknstehvrslvcghmzkkosfykldrwvyjdnhyvnrdfzzvepimgkupsglimtgxixvnqvrwprcwrgdrwhjjuculznlqqsnrrqrbjmxaxnglvgawemlzuinnxobijhbwumjmcdnyaznolzecuqofmirvhtyylllwxotldiypjcgpxflugrvboohvmrehzqajsdfnrbqjyfayinutvyoocjwbzszbrnaqowvyodbmmootveznfthblnfbvaqbgqenpvxfcvvqolvvngjiqnjexrrquyahcohlzzymhpiancusmcafeqkniqkbhvxfkxorgjksbhnwapjrgngkjueagoxctyrlbbsdudrouccmqqnyfpruvjtbxlqpmcjsfyfjjcnqgopybvslvuznzhlnlezpfvpngyqqjraitfkqyvhxefapwpntdlesjdcbayouuwfdfngazeiehuoxlzrxngccpqcbqegzcpuchrifkbqqtouhzxgftijwvvqwdjuxldctmgttmjuujdunyyybpabatzgybnnaqpgiqqgmntlsybujjjmjrosdzwplvrpeahwnziiltdlalkobhgaawjgpyliqvnzkzuzyjsnnisylnvudasmihohkzragaultqgwdvnqsjucopujqyhcwloqpagiqmxvebjjtqhpngvqtyysdctlkxmuezjnhjulidmmforzcobkxhaekhhipktfcyccmltqljhtfgyxyusasiswcnnsaqnmhelzigtowvnbtbzoeznfheppsueoqmivwqagvtgmqiafdabisayttiukckfvydfoldjalpaaefesedlyhzbzzuno"));
         System.out.println(g.sherlock("jtqgugmcsxvdwidtcyqpogkdifapuloqykjfxruvfrshcehekoiwbpbrprahwvhliglyxynjotbaswnnnmxbkmcftvsdqajemeul"));
         System.out.println(g.sherlock("aaaabbccdd"));
+
+        Shelter shelter = new Shelter();
+        shelter.addCat();
+        shelter.addDog();
+        shelter.addDog();
+        shelter.addCat();
+        System.out.println(shelter.deQueueAny().getAnimal());
+        System.out.println(shelter.deQueueAny().getAnimal());
+        System.out.println(shelter.deQueueAny().getAnimal());
+        System.out.println(shelter.deQueueAny().getAnimal());
     }
 
 }
