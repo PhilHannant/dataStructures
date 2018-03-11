@@ -58,11 +58,5 @@ public class MergeSort {
     }
 
 
-    public long countInversions(int array) {
-        // Complete this function
-        int[] temp = new int[array.];
-
-        return mSort(array, temp, 0, array.length-1);
-    }
 
 }

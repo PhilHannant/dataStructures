@@ -82,6 +82,9 @@ public class QuestionsMain {
         System.out.println(shelter.deQueueAny().getAnimal());
         System.out.println(shelter.deQueueAny().getAnimal());
         System.out.println(shelter.deQueueAny().getAnimal());
+
+        System.out.println(g.panagram("We promptly judged antique ivory buckles for the next prize"));
+        System.out.println(g.panagram("We promptly judged antique ivory buckles for the prize"));
     }
 
 }

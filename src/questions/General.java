@@ -290,6 +290,30 @@ public class General {
     }
 
 
+    public String panagram(String s){
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        char[] arr = s.toLowerCase().toCharArray();
+
+
+        HashMap<Character, Integer> pana = new HashMap<>();
+        for(int i = 0; i < alphabet.length; i++){
+            pana.put(alphabet[i], 0);
+        }
+
+        for(int j = 0; j < arr.length; j++){
+
+            if(pana.containsKey(arr[j])){
+                pana.put(arr[j], pana.get(arr[j]) + 1);
+            }
+        }
+        for(int key: pana.values()){
+            if(key == 0){
+                return "not pangram";
+            }
+        }
+        return "pangram";
+    }
+
 
 
 }
