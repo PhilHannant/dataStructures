@@ -12,13 +12,16 @@ public class Main {
         ll.addNode("e");
         ll.printList();
         System.out.println(ll.getSize());
+        System.out.println("reverse");
         ll.reverseList();
         ll.printList();
+        System.out.println("reversed");
         ll.insertNode("insert", 3);
         ll.printList();
         ll.deleteNode(2);
         System.out.println("deleting");
         ll.printList();
+        System.out.println(ll.detectCycle());
 
         System.out.println("stack");
         Stack<Integer> s = new Stack<Integer>(1);

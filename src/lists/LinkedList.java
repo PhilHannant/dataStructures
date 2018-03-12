@@ -53,6 +53,7 @@ public class LinkedList<T> {
             System.out.print(start.data + " ");
             start = start.next;
         }
+        System.out.println("");
     }
 
     public Boolean insertNode(T data, int position){
@@ -126,16 +127,40 @@ public class LinkedList<T> {
     }
 
     public void reverseList(){
-        Node<T> previous = null;
-        Node<T> nextNode = root.next;
-        while(nextNode != null){
-            root.next = previous;
-            previous = root;
-            root = nextNode;
-            nextNode = nextNode.next;
-            root.next = previous;
+        root = reverseList(root);
+    }
 
+    public Node<T> reverseList(Node<T> node){
+        Node<T> previous = null;
+        Node<T> current = node;
+        Node<T> nextNode = root.next;
+        while(current != null){
+            nextNode = current.next;
+            current.next = previous;
+            previous = current;
+            current = nextNode;
         }
+        node = previous;
+        return node;
+    }
+
+    public boolean detectCycle(){
+        return detectCycle(root);
+    }
+
+    //Uses Flloyd's cycle detection algorithm
+    public boolean detectCycle(Node<T> node) {
+        Node<T> slow = node;
+        Node<T> fast = node;
+        while (slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void removeNext(Node<T> removeNode){
