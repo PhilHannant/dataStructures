@@ -181,14 +181,32 @@ public class General {
     }
 
 
-    public void iceCreamSolver(int arr[], int money){
+    public int indexOf(int[] menu, int value, int exclude){
+        for(int i = 0; i < menu.length; i++){
+            if(menu[i] == value && menu[i] != exclude){
+                return i;
+            }
+        }return -1;
+    }
+
+    public int[] getIndices(int[] menu, int value1, int value2){
+        int index1 = indexOf(menu, value1, -1);
+        int index2 = indexOf(menu, value2, value1);
+        int[] indices = {Math.min(value1, value2), Math.max(value1, value2)};
+        return indices;
+    }
+    public int[] iceCreamSolver(int arr[], int money){
         int[] menu = arr.clone();
         Arrays.sort(menu);
         for(int i = 0; i < menu.length; i++){
             int compliment = money - menu[i];
             int index = Arrays.binarySearch(menu, i + 1, menu.length, compliment);
-
+            if(index >= 0 && index < menu.length & menu[index] == compliment){
+                int[] indices = getIndices(menu, menu[index], compliment);
+                return indices;
+            }
         }
+        return null;
     }
 
     public boolean ransom(String[] magazine, String[] ransom){
