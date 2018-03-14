@@ -191,6 +191,32 @@ public class LinkedList<T> {
         return root;
     }
 
+//    public int mergeLists(Node node1, Node node2){
+//        Stack<Node> list1 = getStack(node1);
+//        Stack<Node> list2 = getStack(node2);
+//        int lastValue = 0;
+//        while (!list1.isEmpty() || !list2.isEmpty()){
+//            lastValue = list1.peek().data;
+//            if(list1.peek().data != list2.peek().data){
+//                return lastValue;
+//            } else {
+//                lastValue = list1.pop().data;
+//                list2.pop();
+//            }
+//        }
+//        return -1
+//    }
+//
+//    public Stack<Node> getStack(Node node){
+//        Stack<Node> s = new Stack<>();
+//        while(node != null){
+//            s.push(node);
+//            node = node.next;
+//        }
+//        return s;
+//
+//    }
+
     class Node<T>{
 
         private T data;

@@ -17,3 +17,34 @@ merge sort - o (n log n) for all
 - is also a sorting algorithm. The algorithm divides the array in two halves, recursively sorts them and finally merges the two sorted halves.
 
 Use - https://gist.github.com/TSiege/cbb0507082bb18ff7e4b#studying-for-a-tech-interview-sucks-so-heres-a-cheat-sheet-to-help
+
+
+What’s the difference between a Linked List and an ArrayList? Can you give me examples of when you’d use each one?
+
+What’s a compression algorithm?
+
+Write a script to find all the odd numbers between 1 and 100.
+
+What would be the advantage of using cloud servers in a J.P. Morgan office?
+
+How would you describe an object oriented programming language?
+
+Tell me everything you know about object oriented programming languages.
+
+Tell me about a piece of technology that would benefit J.P. Morgan.
+
+What’s the difference between Java and C++?
+
+Name me three qualities that differentiate Java as a programming language.
+
+Given an array of numbers, write a function to calculate the largest sum of any two numbers in the array.
+
+What is the difference between multi tasking, multi processing and multi programming operating systems? Can you provide some examples?
+
+You have two threads, one printing even numbers in order and other odd numbers in order. How would you design an algorithm so that it prints numbers in natural order?
+
+What’s the software development cycle?
+
+Write a function to calculate the factorial.
+
+What’s the difference between agile and waterfall?
