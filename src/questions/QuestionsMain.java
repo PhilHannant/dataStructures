@@ -38,6 +38,9 @@ public class QuestionsMain {
 
         a.findMaxSumKadane(matrix, 3);
 
+        int[] zeroArray = {15, -2, 2, -8, 1, 7, 10, 23};
+        System.out.println(a.largestZeroSum(zeroArray));
+
         int [] subArr = {-2, -3, 4, -1, -2, 1, 5, -3};
         System.out.println("maxSum is "+a.maxSumSubArray(subArr));
 
