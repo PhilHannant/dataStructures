@@ -191,6 +191,31 @@ public class LinkedList<T> {
         return root;
     }
 
+
+    public void getNthNode(int n){
+        int size = getSize(root);
+        int position = size - n;
+        int count = 1;
+        System.out.println("size="+size);
+        Node current = root;
+        while(count <= size){
+            System.out.println("pos"+position);
+            System.out.println("count"+count);
+            if (position == count){
+                System.out.println("dat"+current.data);
+                return;
+            }
+            if(current.next != null){
+                current = current.next;
+            }
+            count++;
+        }
+    }
+
+    int getSize(Node node){
+        if(node == null) return 0;
+        return getSize(node.next) + 1;
+    }
 //    public int mergeLists(Node node1, Node node2){
 //        Stack<Node> list1 = getStack(node1);
 //        Stack<Node> list2 = getStack(node2);

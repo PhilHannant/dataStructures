@@ -23,6 +23,14 @@ public class Main {
         ll.printList();
         System.out.println(ll.detectCycle());
 
+        LinkedList<Integer> l2 = new LinkedList<>(1);
+        l2.addNode(3);
+        l2.addNode(5);
+        l2.addNode(6);
+        l2.getNthNode(0);
+        l2.getNthNode(2);
+
+
         System.out.println("stack");
         Stack<Integer> s = new Stack<Integer>(1);
         s.push(2);
