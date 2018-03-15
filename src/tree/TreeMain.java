@@ -25,6 +25,10 @@ public class TreeMain {
         t.deleteNode(15);
         t.printInOrder();
         System.out.println(t.checkBST());
+        t.printInOrder();
+        t.invertTree();
+        t.printInOrder();
+
 
 
 

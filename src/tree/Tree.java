@@ -226,7 +226,7 @@ public class Tree {
         if(node == null ){
             return true;
         }
-        if (node.data > min && node.data < min &&
+        if (node.data > min && node.data < max &&
                 checkBST(node.left, node.data, min) &&
                 checkBST(node.right, max, node.data)){
             return true;
@@ -301,6 +301,27 @@ public class Tree {
             System.out.println("not found");
             return -1;
         }
+    }
+
+    public Node invertTree() {
+        if(root!=null){
+            invertTreeHelper(root);
+        }
+
+        return root;
+    }
+
+    public void invertTreeHelper(Node n){
+
+        Node temp = n.left;
+        n.left = n.right;
+        n.right = temp;
+
+        if(n.left!=null)
+            invertTreeHelper(n.left);
+
+        if(n.right!=null)
+            invertTreeHelper(n.right);
     }
 
     private class Node {

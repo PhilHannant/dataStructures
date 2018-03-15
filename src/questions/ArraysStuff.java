@@ -1,6 +1,7 @@
 package questions;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class ArraysStuff {
 
@@ -146,4 +147,19 @@ public class ArraysStuff {
         return currentMax;
     }
 
+
+    public int largestZeroSum(int[] arr){
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        int sum = 0;
+        int max = 0;
+        for(int i = 0; i < arr.length; i++){
+            sum+= arr[i];
+            if(!hm.containsKey(sum)){
+                hm.put(sum, i);
+            } else {
+                max = Math.max(max, i - hm.get(sum));
+            }
+        }
+        return max;
+    }
 }
