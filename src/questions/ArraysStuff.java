@@ -162,4 +162,39 @@ public class ArraysStuff {
         }
         return max;
     }
+
+
+    public int maxSumTwo(int[] arr){
+        int first = Math.max(arr[0], arr[1]);
+        int second = Math.min(arr[0], arr[1]);
+
+        for(int i = 2; i < arr.length; i++){
+            if(first < arr[i]){
+                second = first;
+                first = arr[i];
+            }
+        }
+        return first + second;
+
+    }
+
+    public void minMax(int[] arr){
+        long sum = 0;
+        long max = Long.MIN_VALUE;
+        long min = Long.MAX_VALUE;
+
+        for(int i = 0; i < arr.length; i++){
+            sum+= arr[i];
+        }
+        System.out.println(sum);
+
+        for(int j = 0; j < arr.length; j++){
+            max = Math.max(max, sum - arr[j]);
+            min = Math.min(min, sum - arr[j]);
+        }
+
+        System.out.println("min="+min);
+        System.out.println("max="+max);
+    }
+
 }

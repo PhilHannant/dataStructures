@@ -44,6 +44,12 @@ public class QuestionsMain {
         int [] subArr = {-2, -3, 4, -1, -2, 1, 5, -3};
         System.out.println("maxSum is "+a.maxSumSubArray(subArr));
 
+        int[] minMax = {942381765, 627450398, 954173620, 583762094, 236817490};
+        a.minMax(minMax);
+
+        int[] twoSum = {12, 34, 10, 6, 40};
+        System.out.println(a.maxSumTwo(twoSum));
+
         int[] swapArr1 = {2, 7, 9, 5, 8, 7, 4};
         System.out.println(g.swaps(swapArr1, 7));
 
