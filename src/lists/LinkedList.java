@@ -133,7 +133,7 @@ public class LinkedList<T> {
     public Node<T> reverseList(Node<T> node){
         Node<T> previous = null;
         Node<T> current = node;
-        Node<T> nextNode = root.next;
+        Node<T> nextNode;
         while(current != null){
             nextNode = current.next;
             current.next = previous;
