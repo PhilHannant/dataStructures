@@ -209,6 +209,33 @@ public class General {
         return null;
     }
 
+    public boolean anagram2(String first, String second){
+
+        if(first.length() != second.length()) return false;
+        HashMap<Character, Integer> f = populateHash(first);
+        HashMap<Character, Integer> s = populateHash(second);
+
+        for(Character c : f.keySet()){
+            if(!s.containsKey(c)) return false;
+            if(s.get(c) != f.get(c)) return false;
+        }
+        return true;
+    }
+
+    public HashMap<Character, Integer> populateHash(String str){
+        HashMap<Character, Integer> hm = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for(int i = 0; i < chars.length; i++){
+            if(!hm.containsKey(chars[i])){
+                hm.put(chars[i], 1);
+            } else {
+                hm.put(chars[i], hm.get(chars[i] + 1));
+            }
+        }
+        return hm;
+    }
+
+
     public boolean ransom(String[] magazine, String[] ransom){
         HashMap<String, Integer> mag = new HashMap<>();
         HashMap<String, Integer> ran = new HashMap<>();

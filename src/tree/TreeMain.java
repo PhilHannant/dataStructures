@@ -32,6 +32,7 @@ public class TreeMain {
 
 
 
+
         System.out.println("heap");
         Heap h = new Heap(20);
         h.insertKey(30);
@@ -55,6 +56,10 @@ public class TreeMain {
         h.deleteKey(2);
         System.out.println("delete");
         h.print();
+
+        System.out.println((2-1)/2);
+        System.out.println((1-1)/2);
+
 
 
     }
