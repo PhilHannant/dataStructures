@@ -359,6 +359,18 @@ public class General {
         return "pangram";
     }
 
+    public String kangaroo(int x1, int v1, int x2, int v2) {
+        int dis = Math.abs(x1-x2);
+        int speed = Math.abs(v1-v2);
+        if(v1 > v2){
+            if(dis > speed){
+                if(dis % speed == 0) return "YES";
+            } else {
+                if(speed % dis == 0) return "YES";
+            }
+        }
+        return "NO";
+    }
 
 
 }

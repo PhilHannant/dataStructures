@@ -14,6 +14,7 @@ public class QuestionsMain {
 
         System.out.println(Arrays.toString(a.mergeArrays2(arr, arr2)));
 
+        System.out.println("fib");
         Recurssion r = new Recurssion();
         int[] fib1 = new int[11];
         int[] fib2 = new int[5];
@@ -101,6 +102,8 @@ public class QuestionsMain {
 
         System.out.println(g.panagram("We promptly judged antique ivory buckles for the next prize"));
         System.out.println(g.panagram("We promptly judged antique ivory buckles for the prize"));
+
+        System.out.println(g.kangaroo(4523, 8092, 9419, 8076));
     }
 
 }
