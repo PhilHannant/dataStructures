@@ -372,5 +372,20 @@ public class General {
         return "NO";
     }
 
+    public void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
+        int larry = countHelper(apples, s, t, a);
+        int rob = countHelper(oranges, s, t, b);
+        System.out.println(larry + " " + rob);
+    }
+
+    public int countHelper(int[] arr, int s, int t, int x){
+        int count = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] + x <= t && arr[i] + x >= s){
+                count++;
+            }
+        }
+        return count;
+    }
 
 }

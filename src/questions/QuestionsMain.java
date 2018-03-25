@@ -104,6 +104,10 @@ public class QuestionsMain {
         System.out.println(g.panagram("We promptly judged antique ivory buckles for the prize"));
 
         System.out.println(g.kangaroo(4523, 8092, 9419, 8076));
+        int[] apples = {-2, 2, 1};
+        int[] oranges = {5, -6};
+        g.countApplesAndOranges(7, 11, 5, 15, apples, oranges);
+
     }
 
 }
