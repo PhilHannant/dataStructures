@@ -324,6 +324,38 @@ public class Tree {
             invertTreeHelper(n.right);
     }
 
+
+    public boolean checb(Node current, int min, int max){
+        if(current == null){
+            return true;
+        }
+        if(current.data > min && current.data < max &&
+                checb(current.right, current.data, max) &&
+                checb(current.left, min, current.data)){
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public boolean find(int data, Node node){
+        if(data == node.data){
+            return true;
+        } else {
+            if(data < node.data){
+                find(data, node.left);
+            }
+
+            if (data > node.data){
+                find(data, node.right);
+            }
+            return false;
+        }
+
+    }
+
+
     private class Node {
 
         private Node left;
