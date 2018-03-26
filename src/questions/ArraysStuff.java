@@ -41,10 +41,23 @@ public class ArraysStuff {
     }
 
 
+    public int[] mergeArrays2(int[] arr1, int[] arr2){
+        int[] arr3 = new int[arr1.length + arr2.length];
+        for(int i = 0; i < arr1.length; i++){
+            arr3[i] = arr1[i];
+        }
+        int count = 0;
+        for(int j = arr1.length; j < arr3.length; j++){
+            arr3[j] = arr2[count];
+            count++;
+        }
+        return arr3;
+    }
+
     public void printSpiral(int[][] arr) {
         int top = 0;
         int left = 0;
-        int right = arr.length;
+        int right = arr[0].length;
         int bottom = arr.length;
 
         while (top < bottom && left < right) {
@@ -162,4 +175,39 @@ public class ArraysStuff {
         }
         return max;
     }
+
+
+    public int maxSumTwo(int[] arr){
+        int first = Math.max(arr[0], arr[1]);
+        int second = Math.min(arr[0], arr[1]);
+
+        for(int i = 2; i < arr.length; i++){
+            if(first < arr[i]){
+                second = first;
+                first = arr[i];
+            }
+        }
+        return first + second;
+
+    }
+
+    public void minMax(int[] arr){
+        long sum = 0;
+        long max = Long.MIN_VALUE;
+        long min = Long.MAX_VALUE;
+
+        for(int i = 0; i < arr.length; i++){
+            sum+= arr[i];
+        }
+        System.out.println(sum);
+
+        for(int j = 0; j < arr.length; j++){
+            max = Math.max(max, sum - arr[j]);
+            min = Math.min(min, sum - arr[j]);
+        }
+
+        System.out.println("min="+min);
+        System.out.println("max="+max);
+    }
+
 }

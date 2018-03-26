@@ -209,6 +209,33 @@ public class General {
         return null;
     }
 
+    public boolean anagram2(String first, String second){
+
+        if(first.length() != second.length()) return false;
+        HashMap<Character, Integer> f = populateHash(first);
+        HashMap<Character, Integer> s = populateHash(second);
+
+        for(Character c : f.keySet()){
+            if(!s.containsKey(c)) return false;
+            if(s.get(c) != f.get(c)) return false;
+        }
+        return true;
+    }
+
+    public HashMap<Character, Integer> populateHash(String str){
+        HashMap<Character, Integer> hm = new HashMap<>();
+        char[] chars = str.toCharArray();
+        for(int i = 0; i < chars.length; i++){
+            if(!hm.containsKey(chars[i])){
+                hm.put(chars[i], 1);
+            } else {
+                hm.put(chars[i], hm.get(chars[i] + 1));
+            }
+        }
+        return hm;
+    }
+
+
     public boolean ransom(String[] magazine, String[] ransom){
         HashMap<String, Integer> mag = new HashMap<>();
         HashMap<String, Integer> ran = new HashMap<>();
@@ -332,6 +359,33 @@ public class General {
         return "pangram";
     }
 
+    public String kangaroo(int x1, int v1, int x2, int v2) {
+        int dis = Math.abs(x1-x2);
+        int speed = Math.abs(v1-v2);
+        if(v1 > v2){
+            if(dis > speed){
+                if(dis % speed == 0) return "YES";
+            } else {
+                if(speed % dis == 0) return "YES";
+            }
+        }
+        return "NO";
+    }
 
+    public void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
+        int larry = countHelper(apples, s, t, a);
+        int rob = countHelper(oranges, s, t, b);
+        System.out.println(larry + " " + rob);
+    }
+
+    public int countHelper(int[] arr, int s, int t, int x){
+        int count = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] + x <= t && arr[i] + x >= s){
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
