@@ -339,22 +339,26 @@ public class Tree {
 
     }
 
-    public boolean find(int data, Node node){
-        if(data == node.data){
-            return true;
-        } else {
-            if(data < node.data){
-                find(data, node.left);
-            }
 
-            if (data > node.data){
-                find(data, node.right);
-            }
-            return false;
-        }
 
+    public Node find(int data){
+        return find(data, root);
     }
 
+    public Node find(int data, Node node){
+        if(node != null) {
+            if (data == node.data) {
+                return node;
+            } else {
+                if (data < node.data) {
+                    return find(data, node.left);
+                } else {
+                    return find(data, node.right);
+                }
+            }
+        }
+        return null;
+    }
 
     private class Node {
 

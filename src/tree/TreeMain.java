@@ -26,8 +26,10 @@ public class TreeMain {
         t.printInOrder();
         System.out.println(t.checkBST());
         t.printInOrder();
-        t.invertTree();
+        //t.invertTree();
         t.printInOrder();
+        System.out.println("f="+t.getData(t.find(26)));
+        System.out.println("fN="+t.getData(t.findNode(26)));
 
 
 
