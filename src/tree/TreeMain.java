@@ -13,6 +13,7 @@ public class TreeMain {
         t.addNode(6);
         t.addNode(10);
         t.addNode(2);
+        System.out.println(t.countNodes());
         t.printInOrder();
         t.printPreOrder();
         t.printPostOrder();
@@ -28,8 +29,14 @@ public class TreeMain {
         t.printInOrder();
         //t.invertTree();
         t.printInOrder();
-        System.out.println("f="+t.getData(t.find(26)));
+        System.out.println("f="+t.getData(t.find(10)));
         System.out.println("fN="+t.getData(t.findNode(26)));
+
+        System.out.println(t.deepestNode());
+
+        System.out.println(t.getData(t.getDeep()));
+
+        System.out.println(t.countNodes());
 
 
 

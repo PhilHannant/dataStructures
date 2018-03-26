@@ -339,7 +339,55 @@ public class Tree {
 
     }
 
+    public int getDeepestNode(){
+        int maxLevel = -1;
+        int result = -1;
 
+        getDeepestNode(root, 0,maxLevel, result);
+        return result;
+    }
+
+    public void getDeepestNode(Node node, int level, int maxLevel, int result){
+        if(node != null){
+
+            getDeepestNode(node.left, level++, maxLevel, result);
+
+            if(level > maxLevel){
+                maxLevel = level;
+                result = node.data;
+            }
+
+            getDeepestNode(node.right, level, maxLevel, level);
+        }
+    }
+
+    public Node getDeep(){
+        return deepestNode(root, 0);
+    }
+
+    public int countNodes(){
+        return countNodes(root);
+    }
+
+    public int countNodes(Node node){
+        if(node != null) return countNodes(node.left) + countNodes(node.right) + 1;
+        else return 0;
+    }
+
+    public Node deepestNode(Node node, int level){
+        int deepestLevel=0;
+        Node deepestNode=null;
+        if(node==null){
+            return null;
+        }
+        deepestNode(node.left,level++);
+        if(level>deepestLevel){
+            deepestLevel=level;
+            deepestNode =node;
+        }
+        deepestNode(node.right,level++);
+        return deepestNode;
+    }
 
     public Node find(int data){
         return find(data, root);
