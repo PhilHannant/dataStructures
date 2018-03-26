@@ -14,6 +14,7 @@ public class TreeMain {
         t.addNode(10);
         t.addNode(2);
         System.out.println(t.countNodes());
+        System.out.println(t.getDeepestNode());
         t.printInOrder();
         t.printPreOrder();
         t.printPostOrder();

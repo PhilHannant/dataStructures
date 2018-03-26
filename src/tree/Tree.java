@@ -7,6 +7,8 @@ public class Tree {
 
     private Node root;
     private Queue<Integer> deleteQueue;
+    private int result;
+    private int maxLevel;
 
     public Tree(int rootData){
         if (root == null) {
@@ -340,24 +342,25 @@ public class Tree {
     }
 
     public int getDeepestNode(){
-        int maxLevel = -1;
-        int result = -1;
+        maxLevel = -1;
+        result = -1;
 
-        getDeepestNode(root, 0,maxLevel, result);
+        getDeepestNode(root, 0);
         return result;
     }
 
-    public void getDeepestNode(Node node, int level, int maxLevel, int result){
+    public void getDeepestNode(Node node, int level){
         if(node != null){
 
-            getDeepestNode(node.left, level++, maxLevel, result);
+            getDeepestNode(node.left, level++);
 
             if(level > maxLevel){
+
                 maxLevel = level;
                 result = node.data;
             }
 
-            getDeepestNode(node.right, level, maxLevel, level);
+            getDeepestNode(node.right, level++);
         }
     }
 
