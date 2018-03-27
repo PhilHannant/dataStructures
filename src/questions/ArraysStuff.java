@@ -1,11 +1,10 @@
 package questions;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class ArraysStuff {
 
-    public void missingNumbers(int[] arr) {
+    public int missingNumbers(int[] arr) {
         int sumMissing = 0;
         int sumTotal = 0;
         int max = 0;
@@ -13,16 +12,35 @@ public class ArraysStuff {
             sumMissing += arr[i];
             max = arr[i];
         }
-        for (int j = 0; j < max; j++) {
-            sumTotal += j + 1;
+        for (int j = 1; j <= max; j++) {
+            sumTotal += j;
         }
 
+        return sumTotal - sumMissing;
 
-        int difference = sumTotal - sumMissing;
+    }
 
-        System.out.println(sumMissing);
-        System.out.println(sumTotal);
-        System.out.println(difference);
+    public boolean contains(int[] arr, int number){
+        for(int i = 0; i < arr.length; i++){
+            if(number == arr[i]) return true;
+        }
+        return false;
+    }
+
+    public int duplicateNumber(int[] arr){
+        int sumDuplicated = 0;
+        int sumTotal = 0;
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sumDuplicated += arr[i];
+            max = arr[i];
+        }
+        for (int j = 0; j <= max; j++) {
+            sumTotal += j;
+        }
+
+        return sumDuplicated - sumTotal;
+
     }
 
     public int[] mergeArrays(int[] arr1, int[] arr2) {
@@ -230,5 +248,30 @@ public class ArraysStuff {
         j = temp;
     }
 
+
+    public int[] largestSmallest(int[] arr){
+        int smallest = Integer.MAX_VALUE;
+        int largest = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++){
+            smallest = Math.min(smallest, arr[i]);
+            largest = Math.max(largest, arr[i]);
+        }
+        int[] result = {smallest, largest};
+        return result;
+    }
+
+    public Hashtable<Integer, Integer> findPairs(int[] arr, int sum){
+        Set<Integer> pairs = new HashSet<>(arr.length);
+        Hashtable<Integer, Integer> result = new Hashtable<>();
+        for(int i: arr){
+            if(!pairs.contains(sum - i)){
+                pairs.add(i);
+            } else {
+                System.out.println(i + " " + (sum - i));
+                result.put(i, sum -i);
+            }
+        }
+        return result;
+    }
 
 }

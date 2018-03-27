@@ -3,6 +3,8 @@ package Tests;
 import org.junit.*;
 import questions.ArraysStuff;
 
+import java.util.Hashtable;
+
 import static org.junit.Assert.assertEquals;
 
 public class ArrayTests {
@@ -24,6 +26,59 @@ public class ArrayTests {
         for(int i = 0; i < arr.length; i++){
             assertEquals(arr[i], expected[i]);
         }
+    }
+
+    @Test
+    public void missingNumberTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = new int[100];
+        for(int i = 0; i < arr.length; i++){
+            arr[i] = i;
+        }
+        arr[60] = 0;
+        int missing = as.missingNumbers(arr);
+        int expected = 60;
+        assertEquals(expected, missing);
+    }
+
+    @Test
+    public void duplcateNumberTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {0,1,3,2,6,4,5,6};
+        int duplicate = as.duplicateNumber(arr);
+        int expected = 6;
+        assertEquals(expected, duplicate);
+    }
+
+    @Test
+    public void containsTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {0,1,3,2,6,4,5,6};
+        boolean answer = as.contains(arr,5);
+        assertEquals(true, answer);
+
+    }
+
+    @Test
+    public void smallestLargest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {0,1,3,2,6,4,5,6};
+        int[] answer = as.largestSmallest(arr);
+        assertEquals(0, answer[0]);
+        assertEquals(6, answer[1]);
+
+    }
+
+    @Test
+    public void pairsTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = { 2, 4, 3, 5, 6, -2, 7, 8, 9 };
+        Hashtable<Integer, Integer> answer = as.findPairs(arr, 7);
+        Integer[][] expected = {{3, 4},{5,2}, {9,-2}};
+        for(int i = 0; i < expected.length; i++){
+            assertEquals(answer.get(expected[i][0]), expected[i][1]);
+        }
+
     }
 
 }
