@@ -41,13 +41,13 @@ public class ArraysStuff {
     }
 
 
-    public int[] mergeArrays2(int[] arr1, int[] arr2){
+    public int[] mergeArrays2(int[] arr1, int[] arr2) {
         int[] arr3 = new int[arr1.length + arr2.length];
-        for(int i = 0; i < arr1.length; i++){
+        for (int i = 0; i < arr1.length; i++) {
             arr3[i] = arr1[i];
         }
         int count = 0;
-        for(int j = arr1.length; j < arr3.length; j++){
+        for (int j = arr1.length; j < arr3.length; j++) {
             arr3[j] = arr2[count];
             count++;
         }
@@ -70,21 +70,21 @@ public class ArraysStuff {
             top++;
 
             for (int j = top; j < bottom; j++) {
-                System.out.println(arr[j][right-1]);
+                System.out.println(arr[j][right - 1]);
             }
 
             right--;
             if (top < bottom) {
 
-                for (int k = right-1; k >= left; k--) {
-                    System.out.println(arr[bottom-1][k]);
+                for (int k = right - 1; k >= left; k--) {
+                    System.out.println(arr[bottom - 1][k]);
                 }
 
                 bottom--;
             }
             if (left < right) {
 
-                for (int l = bottom-1; l >= top; l--) {
+                for (int l = bottom - 1; l >= top; l--) {
                     System.out.println(arr[l][left]);
                 }
 
@@ -94,18 +94,18 @@ public class ArraysStuff {
 
     }
 
-    public void printKthSmallest(int[][] arr, int[] queries){
+    public void printKthSmallest(int[][] arr, int[] queries) {
         System.out.println("printKthSmallest");
         int[] lastRange = arr[arr.length - 1];
         int lastElem = lastRange[lastRange.length - 1];
         int[] rangeArr = new int[lastElem - arr[0][0]];
 
-        for(int i = arr[0][0]; i < rangeArr.length; i++){
-            rangeArr[i]=i;
+        for (int i = arr[0][0]; i < rangeArr.length; i++) {
+            rangeArr[i] = i;
         }
 
-        for(int i = 0; i < queries.length; i++){
-            if(queries[i] > rangeArr[rangeArr.length-1]){
+        for (int i = 0; i < queries.length; i++) {
+            if (queries[i] > rangeArr[rangeArr.length - 1]) {
                 System.out.println("-1");
             } else {
                 System.out.println(rangeArr[queries[i]]);
@@ -115,15 +115,15 @@ public class ArraysStuff {
 
     }
 
-    public int findMaxSum(int[][]arr, int matrix){
+    public int findMaxSum(int[][] arr, int matrix) {
         System.out.println("findMax");
         int maxSum = 0;
-        for(int i = 0; i < arr.length-matrix+1; i++){
-            for (int j = 0; j < arr.length-matrix+1; j++) {
+        for (int i = 0; i < arr.length - matrix + 1; i++) {
+            for (int j = 0; j < arr.length - matrix + 1; j++) {
                 int sum = 0;
-                for (int k = i; k < matrix+i; k++) {
-                    for(int l = j; l < matrix+j; l++) {
-                        sum+= arr[k][l];
+                for (int k = i; k < matrix + i; k++) {
+                    for (int l = j; l < matrix + j; l++) {
+                        sum += arr[k][l];
                     }
                 }
                 if (sum > maxSum) maxSum = sum;
@@ -133,14 +133,14 @@ public class ArraysStuff {
         return maxSum;
     }
 
-    public int findMaxSumKadane(int[][] arr, int matrix){
+    public int findMaxSumKadane(int[][] arr, int matrix) {
         System.out.println("findMaxSumKadane");
         int[][] verticalSum = new int[arr.length][arr[0].length];
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             int sum = 0;
-            for(int j = 0; j < arr[0].length; j++){
-                sum+=arr[j][i];
-                verticalSum[j][i]=sum;
+            for (int j = 0; j < arr[0].length; j++) {
+                sum += arr[j][i];
+                verticalSum[j][i] = sum;
                 System.out.println(sum);
             }
         }
@@ -150,10 +150,10 @@ public class ArraysStuff {
     }
 
 
-    public int maxSumSubArray(int[] arr){
+    public int maxSumSubArray(int[] arr) {
         int maxSumHere = arr[0];
         int currentMax = arr[0];
-        for(int i = 1; i < arr.length; i++){
+        for (int i = 1; i < arr.length; i++) {
             maxSumHere = Math.max(arr[i], maxSumHere + arr[i]);
             currentMax = Math.max(currentMax, maxSumHere);
         }
@@ -161,13 +161,13 @@ public class ArraysStuff {
     }
 
 
-    public int largestZeroSum(int[] arr){
+    public int largestZeroSum(int[] arr) {
         HashMap<Integer, Integer> hm = new HashMap<>();
         int sum = 0;
         int max = 0;
-        for(int i = 0; i < arr.length; i++){
-            sum+= arr[i];
-            if(!hm.containsKey(sum)){
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            if (!hm.containsKey(sum)) {
                 hm.put(sum, i);
             } else {
                 max = Math.max(max, i - hm.get(sum));
@@ -177,12 +177,12 @@ public class ArraysStuff {
     }
 
 
-    public int maxSumTwo(int[] arr){
+    public int maxSumTwo(int[] arr) {
         int first = Math.max(arr[0], arr[1]);
         int second = Math.min(arr[0], arr[1]);
 
-        for(int i = 2; i < arr.length; i++){
-            if(first < arr[i]){
+        for (int i = 2; i < arr.length; i++) {
+            if (first < arr[i]) {
                 second = first;
                 first = arr[i];
             }
@@ -191,23 +191,44 @@ public class ArraysStuff {
 
     }
 
-    public void minMax(int[] arr){
+    public void minMax(int[] arr) {
         long sum = 0;
         long max = Long.MIN_VALUE;
         long min = Long.MAX_VALUE;
 
-        for(int i = 0; i < arr.length; i++){
-            sum+= arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
         System.out.println(sum);
 
-        for(int j = 0; j < arr.length; j++){
+        for (int j = 0; j < arr.length; j++) {
             max = Math.max(max, sum - arr[j]);
             min = Math.min(min, sum - arr[j]);
         }
 
-        System.out.println("min="+min);
-        System.out.println("max="+max);
+        System.out.println("min=" + min);
+        System.out.println("max=" + max);
     }
+
+    public int[] sorter(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    private void swap(int i, int j) {
+        int temp = i;
+        i = j;
+        j = temp;
+    }
+
 
 }
