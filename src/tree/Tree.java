@@ -3,6 +3,9 @@ package tree;
 import lists.LinkedList;
 import lists.Queue;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 public class Tree {
 
     private Node root;
@@ -364,8 +367,24 @@ public class Tree {
         }
     }
 
-    public Node getDeep(){
-        return deepestNode(root, 0);
+    public void levelOrderTraversal() {
+        java.util.Queue<Node> levelOrder = new java.util.LinkedList<Node>();
+        Node temp = root;
+        levelOrder.add(temp);
+        while(!levelOrder.isEmpty()){
+
+            temp = levelOrder.remove();
+            System.out.print(temp.data + " ");
+
+            if(temp.left != null){
+                levelOrder.add(temp.left);
+            }
+            if (temp.right != null){
+                levelOrder.add(temp.right);
+            }
+        }
+    System.out.println();
+
     }
 
     public int countNodes(){
@@ -375,21 +394,6 @@ public class Tree {
     public int countNodes(Node node){
         if(node != null) return countNodes(node.left) + countNodes(node.right) + 1;
         else return 0;
-    }
-
-    public Node deepestNode(Node node, int level){
-        int deepestLevel=0;
-        Node deepestNode=null;
-        if(node==null){
-            return null;
-        }
-        deepestNode(node.left,level++);
-        if(level>deepestLevel){
-            deepestLevel=level;
-            deepestNode =node;
-        }
-        deepestNode(node.right,level++);
-        return deepestNode;
     }
 
     public Node find(int data){
