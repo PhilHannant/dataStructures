@@ -13,6 +13,7 @@ public class TreeMain {
         t.addNode(6);
         t.addNode(10);
         t.addNode(2);
+        t.levelOrderTraversal();
         System.out.println(t.countNodes());
         System.out.println(t.getDeepestNode());
         t.printInOrder();
@@ -34,8 +35,6 @@ public class TreeMain {
         System.out.println("fN="+t.getData(t.findNode(26)));
 
         System.out.println(t.deepestNode());
-
-        System.out.println(t.getData(t.getDeep()));
 
         System.out.println(t.countNodes());
 
