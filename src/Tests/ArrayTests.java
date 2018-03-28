@@ -2,6 +2,7 @@ package Tests;
 
 import org.junit.*;
 import questions.ArraysStuff;
+import questions.Quicksort;
 
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -132,5 +133,15 @@ public class ArrayTests {
         int answer = as.kthSmallest(arr, 4);
         int expected = 9;
         assertEquals(expected, answer);
+    }
+
+    @Test
+    public void quickSortTest(){
+        Quicksort qs = new Quicksort();
+        int[] arr = {5,4,3,7,8,1,9,25,17,22,11,2};
+        qs.sort(arr);
+        for(int i = 0; i < arr.length; i++){
+            System.out.println(arr[i]);
+        }
     }
 }

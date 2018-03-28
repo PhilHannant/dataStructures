@@ -397,7 +397,7 @@ public class Tree {
     }
 
     public Node find(int data){
-        return find(data, root);
+        return find2(root, data);
     }
 
     public Node find(int data, Node node){
@@ -413,6 +413,52 @@ public class Tree {
             }
         }
         return null;
+    }
+
+    public Node find2(Node node, int data){
+        if(node == null){
+            return null;
+        } else {
+            if(data == node.data){
+                return node;
+            } else {
+                if(data < node.data){
+                    return find2(node.left, data);
+                } else {
+                    return find2(node.right, data);
+                }
+            }
+        }
+    }
+
+    public int findSecondLargest(){
+        return findSecondLargest(root);
+    }
+
+    public int findSecondLargest(Node node){
+        if(node == null || (node.left == null && node.right == null)){
+            return -1;
+        }
+        if(node.left != null && node.right == null){
+            return getMaxHelper(node.left);
+        }
+
+        if(node.right != null && node.right.left == null && node.right.right == null){
+            return node.data;
+        }
+        return findSecondLargest(node.right);
+    }
+
+    public int findLargest(){
+        return findLargest(root);
+    }
+
+    public int findLargest(Node node){
+        Node current = node;
+        while(current.right != null){
+            current = current.right;
+        }
+        return current.data;
     }
 
     private class Node {
