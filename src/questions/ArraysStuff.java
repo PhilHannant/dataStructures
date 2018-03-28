@@ -290,4 +290,67 @@ public class ArraysStuff {
         return -1;
     }
 
+    public int[] removeDuplicates(int[] arr){
+        Hashtable<Integer, Integer> ht = new Hashtable<>();
+        for(int i = 0; i < arr.length; i++){
+            ht.put(arr[i], 1);
+        }
+        int[] returnArr = new int[ht.size()];
+        int count = 0;
+        for(int keys: ht.keySet()){
+            returnArr[count] = keys;
+            count++;
+        }
+        Arrays.sort(returnArr);
+        return returnArr;
+    }
+
+    public int[] intersection(int[] arr1, int[] arr2){
+        Set<Integer> set1 = new HashSet<>();
+        for(int i = 0; i < arr1.length; i++){
+            set1.add(arr1[i]);
+        }
+        int count = 0;
+        for(int j = 0; j < arr2.length; j++){
+            if(set1.contains(arr2[j])){
+                count++;
+            }
+        }
+        int[] answer = new int[count];
+        count = 0;
+        for(int j = 0; j < arr2.length; j++){
+            if(set1.contains(arr2[j])){
+                answer[count] = arr2[j];
+                count++;
+            }
+        }
+        return answer;
+    }
+
+    public int uniqueNumber(int[] arr){
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i = 0; i < arr.length; i++){
+            if(!hm.containsKey(arr[i])){
+                hm.put(arr[i], 1);
+            } else {
+               hm.put(arr[i], hm.get(arr[i]) + 1);
+            }
+        }
+
+        for(int keys: hm.keySet()){
+            if(hm.get(keys) == 1){
+                return keys;
+            }
+        }
+        return -1;
+    }
+
+
+    public int kthSmallest(int[] arr, int k){
+        Arrays.sort(arr);
+        for(int i = 0; i < k; i++){
+            if(i == k-1) return arr[i];
+        }
+        return -1;
+    }
 }

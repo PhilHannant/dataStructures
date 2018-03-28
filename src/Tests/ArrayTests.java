@@ -3,6 +3,7 @@ package Tests;
 import org.junit.*;
 import questions.ArraysStuff;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 
 import static org.junit.Assert.assertEquals;
@@ -90,4 +91,46 @@ public class ArrayTests {
         assertEquals(expected, answer);
     }
 
+    @Test
+    public void removeDuplicateTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {1, 2, 1, 2, 3, 4, 5};
+        int[] answer = as.removeDuplicates(arr);
+        int[] expected = {1,2,3,4,5};
+        for(int i = 0; i < answer.length; i++){
+            assertEquals(expected[i], answer[i]);
+        }
+    }
+
+    @Test
+    public void intertsectionTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr1 = {21, 34, 41, 22, 35};
+        int[] arr2 = {61, 34, 45, 21, 11};
+        int[] answer = as.intersection(arr1, arr2);
+        Arrays.sort(answer);
+        int[] expected = {21, 34};
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], answer[i]);
+        }
+    }
+
+    @Test
+    public void uniqueNumberTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {1, 1, 2, 2, 3, 4, 4, 5, 5};
+        int answer = as.uniqueNumber(arr);
+        int expected = 3;
+        assertEquals(expected, answer);
+
+    }
+
+    @Test
+    public void getKthSmallestTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {23,45,24,6,7,2,88,9,10};
+        int answer = as.kthSmallest(arr, 4);
+        int expected = 9;
+        assertEquals(expected, answer);
+    }
 }
