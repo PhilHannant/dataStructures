@@ -81,4 +81,13 @@ public class ArrayTests {
 
     }
 
+    @Test
+    public void mulDuplicateTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {1, 4, 5, 6, 3, 6, 2, 6, 6, 7, 9};
+        int answer = as.repeatedDuplicates(arr);
+        int expected = 6;
+        assertEquals(expected, answer);
+    }
+
 }
