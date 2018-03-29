@@ -11,4 +11,25 @@ public class Recurssion {
         return memo[fib];
     }
 
+    public int fib(int n){
+        if(n <= 1) return n;
+        else return (fib(n-1) + fib(n-2));
+    }
+
+
+    public int fibFor(int n){
+        int last = 1;
+        int fib = 0;
+        int temp = 0;
+        for(int i = 0; i < n;  i++){
+            if(n <= 1) return 1;
+            temp = fib;
+            fib = fib + last;
+            last = temp;
+
+        }
+        return fib;
+    }
+
+
 }
