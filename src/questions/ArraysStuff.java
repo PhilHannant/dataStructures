@@ -353,4 +353,24 @@ public class ArraysStuff {
         }
         return -1;
     }
+
+    public int diffAdj(int[] arr1){
+        int[] arr2 = new int[arr1.length];
+        int count = 0;
+        for(int i = 0; i < arr1.length-1; i++){
+            if(count != 0){
+                if(Math.abs(arr1[i]-arr2[count-1]) <=1) {
+                    arr2[count] = arr1[i];
+                    count++;
+                }
+            } else {
+                if(Math.abs(arr1[i]-arr1[i+1]) <=1) {
+                    arr2[count] = arr1[i];
+                    count++;
+                }
+            }
+
+        }
+        return count;
+    }
 }

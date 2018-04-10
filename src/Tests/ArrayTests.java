@@ -144,4 +144,13 @@ public class ArrayTests {
             System.out.println(arr[i]);
         }
     }
+
+    @Test
+    public void diffAdjTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr1 = {-2, -1, 5, -1, 4, 0, 3};
+        int expect = 4;
+        int answer = as.diffAdj(arr1);
+        assertEquals(expect, answer);
+    }
 }
