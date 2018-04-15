@@ -153,4 +153,23 @@ public class ArrayTests {
         int answer = as.diffAdj(arr1);
         assertEquals(expect, answer);
     }
+
+    @Test
+    public void reverseTest(){
+        ArraysStuff as = new ArraysStuff();
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        int[] expected = {8, 7, 6, 5, 4, 3, 2, 1};
+        int[] answer = as.reverseArr(arr);
+        for(int i = 0; i < arr.length; i++){
+            assertEquals(expected[i], answer[i]);
+        }
+
+        int[] arr1 = {1, 2, 3, 4, 5, 6, 7};
+        int[] expected2 = {7, 6, 5, 4, 3, 2, 1};
+        int[] answer2 = as.reverseArr(arr1);
+        for(int i = 0; i < arr1.length; i++){
+            assertEquals(expected2[i], answer2[i]);
+        }
+    }
+
 }

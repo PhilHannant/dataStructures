@@ -373,4 +373,25 @@ public class ArraysStuff {
         }
         return count;
     }
+
+    public int[] reverseArr(int[] arr){
+        int count = arr.length-1;
+        int value;
+        int temp;
+        if(arr.length % 2 == 0){
+            value = arr.length/2;
+        } else {
+            value = arr.length/2 + 1;
+        }
+
+        for(int i = 0; i < value; i++){
+            temp = arr[i];
+            arr[i] = arr[count];
+            arr[count] = temp;
+            count--;
+        }
+
+        return arr;
+    }
+
 }
