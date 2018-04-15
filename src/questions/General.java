@@ -388,4 +388,15 @@ public class General {
         return count;
     }
 
+    public int reverseInt(int number){
+        int ret = 0;
+        int lastDigit;
+        while(number > 0){
+            lastDigit = number%10;
+            ret = (ret * 10) + lastDigit;
+            number = number/10;
+        }
+        return ret;
+    }
+
 }
