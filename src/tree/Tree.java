@@ -461,6 +461,37 @@ public class Tree {
         return current.data;
     }
 
+    public void topView(){
+        if(root != null){
+            topViewHelper(root);
+        }
+    }
+
+    public void topViewHelper(Node node){
+        if(node.left != null){
+            traverseLeft(node.left);
+        }
+        System.out.println(node.data);
+        if(node.right != null){
+            traverseRight(node.right);
+        }
+
+    }
+
+    public void traverseLeft(Node node){
+        if(node.left != null){
+            traverseLeft(node.left);
+        }
+        System.out.println(node.data);
+    }
+
+    public void traverseRight(Node node){
+        System.out.println(node.data);
+        if(node.right != null){
+            traverseRight(node.right);
+        }
+    }
+
     private class Node {
 
         private Node left;

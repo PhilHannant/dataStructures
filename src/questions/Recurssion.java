@@ -20,7 +20,7 @@ public class Recurssion {
     public int fibFor(int n){
         int last = 1;
         int fib = 0;
-        int temp = 0;
+        int temp;
         for(int i = 0; i < n;  i++){
             if(n <= 1) return 1;
             temp = fib;
