@@ -399,4 +399,36 @@ public class General {
         return ret;
     }
 
+    public int bearSteadyGene(String gene){
+        int requiredCount = gene.length()/4;
+        System.out.println(requiredCount);
+        char[] charArr = gene.toCharArray();
+        HashMap<Character, Integer> hm = new HashMap<>();
+        hm.put('A', 0);
+        hm.put('C', 0);
+        hm.put('G', 0);
+        hm.put('T', 0);
+        for(int i = 0; i < charArr.length; i++){
+            hm.put(charArr[i], hm.get(charArr[i]) + 1);
+        }
+        return 0;
+    }
+
+    public int marsExploration(String s) {
+        char[] charArr = s.toCharArray();
+        int counter = 0;
+        for(int i = 0; i < charArr.length; i+=3){
+            if(charArr[i] != 'S'){
+                counter++;
+            }
+            if (charArr[i+1] != 'O') {
+                counter++;
+            }
+            if(charArr[i+2] != 'S'){
+                counter++;
+            }
+        }
+        return counter;
+    }
+
 }

@@ -14,4 +14,20 @@ public class GeneralTests {
         int expected = 8754;
         assertEquals(expected, answer);
     }
+
+    @Test
+    public void bearSteadyGeneTest(){
+        General g = new General();
+        int answer = g.bearSteadyGene("GAAATAAA");
+        int expected = 5;
+        assertEquals(expected, answer);
+    }
+
+    @Test
+    public void marsExplorerTest(){
+        General g = new General();
+        int answer = g.marsExploration("SOSOSOSOSDSDSKWOSDOSDOASDOASDFAFJDFDOSOSOWNSOSOSNDSKDDOSOSOSJDSDSOOSOSDSDOSASSOASDSAOSOSODSDSOASDWS");
+        int expected = 67;
+        assertEquals(expected, answer);
+    }
 }
